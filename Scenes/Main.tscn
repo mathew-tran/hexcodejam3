@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://gk30eduuxgab"]
+
+[ext_resource type="PackedScene" uid="uid://bvrkrgebiq7yg" path="res://Prefabs/Player.tscn" id="1_ndx04"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ndx04")]

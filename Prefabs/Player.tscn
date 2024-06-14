@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvrkrgebiq7yg"]
+
+[ext_resource type="Texture2D" uid="uid://nlikfj0n3hxm" path="res://Art/drone.svg" id="1_43fwn"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_qvhvf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc1rf"]
+size = Vector2(133, 35)
+
+[node name="Player" type="RigidBody2D"]
+position = Vector2(363, 186)
+lock_rotation = true
+script = ExtResource("1_qvhvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_43fwn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_dc1rf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
