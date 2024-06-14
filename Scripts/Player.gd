@@ -8,6 +8,7 @@ var SideThrust = 30000
 
 @onready var Sprite = $Sprite2D
 @onready var CollisionShape = $CollisionShape2D
+@onready var PinJoint = $Connector/PinJoint2D
 
 @onready var MoveParticles = [
 	$Particle1,
@@ -27,6 +28,13 @@ func _process(delta):
 			SteerDirection = Vector2.RIGHT
 		else:
 			ResetSteer()
+
+func _input(event):
+	if event.is_action_pressed("right_click"):
+		DisconnectObject()
+
+func DisconnectObject():
+	PinJoint.node_b = NodePath("")
 
 func ResetSteer():
 	SteerDirection = Vector2.ZERO
@@ -50,10 +58,23 @@ func _physics_process(delta):
 
 	Sprite.rotation_degrees = targetRotation
 	CollisionShape.rotation_degrees = Sprite.rotation_degrees
-	print(Sprite.rotation_degrees)
 
 
 
 func _on_timer_timeout():
 	for particle in MoveParticles:
 		particle.emitting = linear_velocity.x != 0 or linear_velocity.y != 0
+
+
+
+func IsConnected():
+	return PinJoint.node_b != NodePath("")
+
+func _on_connect_joint_body_entered(body):
+	if IsConnected():
+		return
+
+	print("joint connect attempt")
+	if body.is_in_group("Box"):
+		if PinJoint.node_b != body.get_path():
+			PinJoint.node_b = body.get_path()

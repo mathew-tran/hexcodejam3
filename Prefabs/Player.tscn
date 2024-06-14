@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvrkrgebiq7yg"]
+[gd_scene load_steps=7 format=3 uid="uid://bvrkrgebiq7yg"]
 
 [ext_resource type="Texture2D" uid="uid://nlikfj0n3hxm" path="res://Art/drone.svg" id="1_43fwn"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_qvhvf"]
@@ -10,6 +10,9 @@ size = Vector2(116, 35)
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3xc3h"]
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8w75"]
+size = Vector2(80, 60)
 
 [node name="Player" type="RigidBody2D"]
 can_sleep = false
@@ -45,4 +48,20 @@ texture = ExtResource("3_y1k3q")
 wait_time = 0.2
 autostart = true
 
+[node name="Connector" type="Node2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="PinJoint2D" type="DampedSpringJoint2D" parent="Connector"]
+node_a = NodePath("../..")
+bias = 0.23
+disable_collision = false
+
+[node name="ConnectJoint" type="Area2D" parent="Connector"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Connector/ConnectJoint"]
+shape = SubResource("RectangleShape2D_c8w75")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Connector/ConnectJoint" to="." method="_on_connect_joint_body_entered"]

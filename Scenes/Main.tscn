@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://gk30eduuxgab"]
+[gd_scene load_steps=4 format=3 uid="uid://gk30eduuxgab"]
 
 [ext_resource type="PackedScene" uid="uid://bvrkrgebiq7yg" path="res://Prefabs/Player.tscn" id="1_ndx04"]
 [ext_resource type="PackedScene" uid="uid://dlndouqoebtpf" path="res://Prefabs/Environment/House.tscn" id="2_1exte"]
+[ext_resource type="PackedScene" uid="uid://b0hdvc4c2dpwl" path="res://Prefabs/Interactables/Box.tscn" id="3_pgbvo"]
 
 [node name="Level" type="Node2D"]
 
@@ -22,3 +23,7 @@ position = Vector2(743.5, -1114)
 position = Vector2(743.5, -1824)
 
 [node name="Player" parent="." instance=ExtResource("1_ndx04")]
+position = Vector2(-13, -205)
+
+[node name="Box" parent="." instance=ExtResource("3_pgbvo")]
+position = Vector2(-518, -302)
