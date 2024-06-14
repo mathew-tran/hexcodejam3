@@ -31,19 +31,15 @@ position_smoothing_speed = 8.0
 
 [node name="Particle1" type="GPUParticles2D" parent="."]
 show_behind_parent = true
-position = Vector2(53, 0)
+position = Vector2(53, 11)
 process_material = SubResource("ParticleProcessMaterial_3xc3h")
 texture = ExtResource("3_y1k3q")
-lifetime = 4.0
-speed_scale = 3.0
 
 [node name="Partcle2" type="GPUParticles2D" parent="."]
 show_behind_parent = true
-position = Vector2(-53, 0)
+position = Vector2(-53, 11)
 process_material = SubResource("ParticleProcessMaterial_3xc3h")
 texture = ExtResource("3_y1k3q")
-lifetime = 4.0
-speed_scale = 3.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2

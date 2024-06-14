@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlndouqoebtpf"]
+
+[ext_resource type="Texture2D" uid="uid://b7ugl178kfp4d" path="res://Art/House1.svg" id="1_2iruq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41d3n"]
+size = Vector2(447, 715)
+
+[node name="House" type="Sprite2D"]
+position = Vector2(743, 300)
+texture = ExtResource("1_2iruq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_41d3n")

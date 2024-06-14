@@ -1,21 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://gk30eduuxgab"]
+[gd_scene load_steps=3 format=3 uid="uid://gk30eduuxgab"]
 
 [ext_resource type="PackedScene" uid="uid://bvrkrgebiq7yg" path="res://Prefabs/Player.tscn" id="1_ndx04"]
-[ext_resource type="Texture2D" uid="uid://b7ugl178kfp4d" path="res://Art/House1.svg" id="2_15whf"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_41d3n"]
-size = Vector2(447, 715)
+[ext_resource type="PackedScene" uid="uid://dlndouqoebtpf" path="res://Prefabs/Environment/House.tscn" id="2_1exte"]
 
 [node name="Level" type="Node2D"]
 
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="House" parent="Environment" instance=ExtResource("2_1exte")]
+
+[node name="House3" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(-630, 261)
+
+[node name="House2" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(743, -410)
+
+[node name="House4" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(743.5, -1114)
+
+[node name="House5" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(743.5, -1824)
+
 [node name="Player" parent="." instance=ExtResource("1_ndx04")]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(743, 300)
-texture = ExtResource("2_15whf")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
-position = Vector2(2.5, -0.5)
-shape = SubResource("RectangleShape2D_41d3n")

@@ -38,6 +38,8 @@ func _physics_process(delta):
 	apply_force(SteerDirection * SideThrust * delta, Vector2.ZERO)
 	if IsClosetoXPosition():
 		ResetSteer()
+	if linear_velocity.y == 0 and linear_velocity.x == 0:
+		ResetSteer()
 
 	var targetRotation = 0
 	if SteerDirection.x != 0:

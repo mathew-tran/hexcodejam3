@@ -29,6 +29,10 @@ mouse_click={
 ]
 }
 
+[physics]
+
+common/physics_jitter_fix=0.0
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.0352941, 0.227451, 0.329412, 1)
