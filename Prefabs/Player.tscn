@@ -1,24 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvrkrgebiq7yg"]
+[gd_scene load_steps=6 format=3 uid="uid://bvrkrgebiq7yg"]
 
 [ext_resource type="Texture2D" uid="uid://nlikfj0n3hxm" path="res://Art/drone.svg" id="1_43fwn"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_qvhvf"]
+[ext_resource type="Texture2D" uid="uid://4yaytdobspkj" path="res://Art/SmokeParticle.svg" id="3_y1k3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dc1rf"]
-size = Vector2(133, 35)
+size = Vector2(116, 35)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3xc3h"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
 
 [node name="Player" type="RigidBody2D"]
-position = Vector2(363, 186)
+can_sleep = false
 lock_rotation = true
+continuous_cd = 2
 script = ExtResource("1_qvhvf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_43fwn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -0.5)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_dc1rf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 4.0
+position_smoothing_speed = 8.0
+
+[node name="Particle1" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(53, 0)
+process_material = SubResource("ParticleProcessMaterial_3xc3h")
+texture = ExtResource("3_y1k3q")
+lifetime = 4.0
+speed_scale = 3.0
+
+[node name="Partcle2" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(-53, 0)
+process_material = SubResource("ParticleProcessMaterial_3xc3h")
+texture = ExtResource("3_y1k3q")
+lifetime = 4.0
+speed_scale = 3.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

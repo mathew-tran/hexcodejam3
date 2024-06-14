@@ -15,6 +15,12 @@ run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1440
+window/size/viewport_height=900
+window/stretch/mode="canvas_items"
+
 [input]
 
 mouse_click={
@@ -25,4 +31,4 @@ mouse_click={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.988235, 0.894118, 0.658824, 1)
+environment/defaults/default_clear_color=Color(0.0352941, 0.227451, 0.329412, 1)
