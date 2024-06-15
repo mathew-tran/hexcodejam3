@@ -1,7 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctksqfb48qxrk"]
+[gd_scene load_steps=8 format=3 uid="uid://ctksqfb48qxrk"]
 
 [ext_resource type="PackedScene" uid="uid://dfkxh0l8by55q" path="res://Prefabs/UI/DestinationPointer.tscn" id="1_fj0pn"]
 [ext_resource type="Texture2D" uid="uid://xkrr45veeqbr" path="res://Art/currency.svg" id="2_880x3"]
+[ext_resource type="Script" path="res://Scripts/UI/ButtonsContainer.gd" id="3_7c123"]
+[ext_resource type="Script" path="res://Scripts/UI/FindWorkButton.gd" id="4_5xrec"]
+
+[sub_resource type="Animation" id="Animation_uog41"]
+resource_name = "animateIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(470, 820), Vector2(470, 1000)]
+}
+
+[sub_resource type="Animation" id="Animation_1m0bp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(470, 820)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_72cpe"]
+_data = {
+"RESET": SubResource("Animation_1m0bp"),
+"animateIn": SubResource("Animation_uog41")
+}
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -17,10 +55,51 @@ offset_bottom = 62.0
 layout_mode = 2
 texture = ExtResource("2_880x3")
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Money" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "20
 "
 vertical_alignment = 1
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 470.0
+offset_top = 820.0
+offset_right = 970.0
+offset_bottom = 900.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_7c123")
+
+[node name="FindWorkButton" type="Button" parent="ButtonsContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "FIND WORK"
+script = ExtResource("4_5xrec")
+
+[node name="ShopButton" type="Button" parent="ButtonsContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "SHOP"
+
+[node name="CustomizeButton" type="Button" parent="ButtonsContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "CUSTOMIZE"
+
+[node name="PlayerMoveCheckTimer" type="Timer" parent="ButtonsContainer"]
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ButtonsContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_72cpe")
+}
+
+[connection signal="button_up" from="ButtonsContainer/FindWorkButton" to="ButtonsContainer/FindWorkButton" method="_on_button_up"]
+[connection signal="timeout" from="ButtonsContainer/PlayerMoveCheckTimer" to="ButtonsContainer" method="_on_player_move_check_timer_timeout"]

@@ -13,6 +13,9 @@ var DestinationRef
 
 var bIsInitialized = false
 
+var SpawnPoints = []
+
+
 func _ready():
 	connect("AddTarget", Callable(self, "OnAddTarget"))
 	connect("ClearTarget", Callable(self, "OnClearTarget"))
@@ -23,6 +26,9 @@ func _ready():
 	PlayerRef = get_tree().get_nodes_in_group("Player")[0]
 	bIsInitialized = true
 	Initialized.emit()
+
+func RegisterPoint(point):
+	SpawnPoints.append(point)
 
 func OnAddTarget(target):
 	TargetRef = target
@@ -56,6 +62,41 @@ func GetDestination():
 
 func ClearDestination():
 	DestinationRef = null
+
+func GetTwoRandomPoints():
+	SpawnPoints.shuffle()
+	var points = []
+	var index = 1
+	while(SpawnPoints[index].distance_to(GetPlayer().global_position) < 500):
+		index += 1
+	points.append(SpawnPoints[index])
+	points.append(SpawnPoints[0])
+	return points
+
+func GetItemsGroup():
+	return get_tree().get_nodes_in_group("Items")[0]
+
+func MakeJob():
+	if is_instance_valid(GetTarget()):
+		return
+	var points = GetTwoRandomPoints()
+	var box = load(GetBoxClass()).instantiate()
+	box.global_position = points[0]
+	GetItemsGroup().add_child(box)
+
+	var area = load(GetAreaClass()).instantiate()
+	area.global_position = points[1]
+	GetItemsGroup().add_child(area)
+
+	FindBox()
+
+
+
+func GetBoxClass():
+	return "res://Prefabs/Interactables/Box.tscn"
+
+func GetAreaClass():
+	return "res://Prefabs/Interactables/DropArea.tscn"
 
 func FindBox():
 	EventManager.AddTarget.emit(get_tree().get_nodes_in_group("Box")[0])

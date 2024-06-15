@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5vr2xgm8fdha"]
+
+[ext_resource type="Texture2D" uid="uid://durxypkgfjjwq" path="res://Art/SpawnArea.svg" id="1_mesff"]
+[ext_resource type="Script" path="res://Scripts/Game/SpawnPoint.gd" id="2_upvhb"]
+
+[node name="SpawnPoint" type="Sprite2D"]
+texture = ExtResource("1_mesff")
+script = ExtResource("2_upvhb")

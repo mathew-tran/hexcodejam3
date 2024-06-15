@@ -24,7 +24,8 @@ func _ready():
 
 	if EventManager.bIsInitialized == false:
 		await EventManager.Initialized
-	EventManager.FindBox()
+
+	EventManager.MakeJob()
 
 func _process(delta):
 	if Input.is_action_pressed("mouse_click"):
@@ -57,6 +58,9 @@ func DisconnectObject():
 
 func ResetSteer():
 	SteerDirection = Vector2.ZERO
+
+func IsMoving():
+	return linear_velocity.length() > 5
 
 func IsClosetoXPosition():
 	return abs(global_position.x - LastPositionTouched.x) < 100
@@ -93,7 +97,6 @@ func _on_connect_joint_body_entered(body):
 	if IsConnected():
 		return
 
-	print("joint connect attempt")
 	if body.is_in_group("Box"):
 		var box = body as DeliveryBox
 		if PinJoint.node_b != box.get_path():
