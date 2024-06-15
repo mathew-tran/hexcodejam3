@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name Player
+
 var LastPositionTouched = Vector2.ZERO
 var SteerDirection = Vector2.ZERO
 var UpThrust = 190000
@@ -19,7 +21,10 @@ var bIsPressed = false
 
 func _ready():
 	$Camera2D.set_physics_process(true)
-	pass
+
+	if EventManager.bIsInitialized == false:
+		await EventManager.Initialized
+	EventManager.FindBox()
 
 func _process(delta):
 	if Input.is_action_pressed("mouse_click"):
@@ -46,7 +51,8 @@ func _input(event):
 func DisconnectObject():
 	if PinJoint.node_b != NodePath(""):
 		var box = get_node(PinJoint.node_b) as DeliveryBox
-		box.DropOff()
+		if is_instance_valid(box):
+			box.DropOff()
 		PinJoint.node_b = NodePath("")
 
 func ResetSteer():

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssib2"]
 size = Vector2(300, 186)
 
-[node name="DropArea" type="Area2D"]
+[node name="DropArea" type="Area2D" groups=["DropArea"]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_qqmy1")

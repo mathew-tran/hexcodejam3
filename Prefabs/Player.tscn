@@ -48,7 +48,7 @@ collision_mode = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8w75"]
 size = Vector2(80, 60)
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" groups=["Player"]]
 top_level = true
 physics_material_override = SubResource("PhysicsMaterial_1152u")
 gravity_scale = 1.5

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctksqfb48qxrk"]
+
+[ext_resource type="PackedScene" uid="uid://dfkxh0l8by55q" path="res://Prefabs/UI/DestinationPointer.tscn" id="1_fj0pn"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Pointer" parent="." instance=ExtResource("1_fj0pn")]

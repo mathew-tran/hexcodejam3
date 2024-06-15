@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bato5xgrrb1or"]
+
+[ext_resource type="Script" path="res://Scripts/Game/JobHunter.gd" id="1_04lqd"]
+
+[node name="JobHunter" type="Node"]
+script = ExtResource("1_04lqd")
