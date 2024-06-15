@@ -7,7 +7,10 @@ signal ClearDropArea(node)
 signal Initialized
 signal ChangePlayerSkin(texture)
 signal CustomizeClick
+signal MoneyUpdate
 
+var RewardAmount = 0
+var Money = 0
 var TargetRef
 var PlayerRef
 var DropArea
@@ -19,6 +22,7 @@ var SpawnPoints = []
 
 
 func _ready():
+	MoneyUpdate.emit()
 	connect("AddTarget", Callable(self, "OnAddTarget"))
 	connect("ClearTarget", Callable(self, "OnClearTarget"))
 	connect("AddDropArea", Callable(self, "OnAddDropArea"))
@@ -90,7 +94,18 @@ func MakeJob():
 	area.global_position = points[1]
 	GetItemsGroup().add_child(area)
 
+	RewardAmount = 10 + randi() % 5 + roundi(points[0].distance_to(points[1]) / 500)
 	FindBox()
+
+func GiveReward():
+	var text = load("res://Prefabs/UI/PopupText.tscn").instantiate()
+	text.global_position = GetPlayer().global_position
+	GetItemsGroup().add_child(text)
+	text.Setup(RewardAmount)
+
+	Money += RewardAmount
+	RewardAmount = 0
+	MoneyUpdate.emit()
 
 
 

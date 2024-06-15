@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctksqfb48qxrk"]
+[gd_scene load_steps=11 format=3 uid="uid://ctksqfb48qxrk"]
 
 [ext_resource type="PackedScene" uid="uid://dfkxh0l8by55q" path="res://Prefabs/UI/DestinationPointer.tscn" id="1_fj0pn"]
 [ext_resource type="Texture2D" uid="uid://xkrr45veeqbr" path="res://Art/currency.svg" id="2_880x3"]
 [ext_resource type="Script" path="res://Scripts/UI/ButtonsContainer.gd" id="3_7c123"]
+[ext_resource type="Script" path="res://Scripts/UI/Money.gd" id="3_jiboh"]
 [ext_resource type="Script" path="res://Scripts/UI/FindWorkButton.gd" id="4_5xrec"]
 [ext_resource type="PackedScene" uid="uid://d4i5rffuicl1t" path="res://Prefabs/UI/CustomizePanel.tscn" id="5_30tnp"]
 [ext_resource type="Script" path="res://Scripts/UI/CustomizeButton.gd" id="5_efbsd"]
@@ -64,6 +65,7 @@ theme_override_font_sizes/font_size = 40
 text = "20
 "
 vertical_alignment = 1
+script = ExtResource("3_jiboh")
 
 [node name="ButtonsContainer" type="HBoxContainer" parent="."]
 anchors_preset = 7

@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0wudsdf1txif"]
+
+[ext_resource type="Script" path="res://Scripts/UI/PopupText.gd" id="1_b2wsj"]
+[ext_resource type="Texture2D" uid="uid://xkrr45veeqbr" path="res://Art/currency.svg" id="1_sccdc"]
+
+[sub_resource type="Animation" id="Animation_dvnmk"]
+resource_name = "anim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -200)]
+}
+
+[sub_resource type="Animation" id="Animation_gec8c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ud70g"]
+_data = {
+"RESET": SubResource("Animation_gec8c"),
+"anim": SubResource("Animation_dvnmk")
+}
+
+[node name="PopupText" type="Node2D"]
+script = ExtResource("1_b2wsj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+offset_right = 100.0
+offset_bottom = 57.0
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "+
+"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_sccdc")
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "20"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ud70g")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
