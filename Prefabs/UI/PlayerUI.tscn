@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctksqfb48qxrk"]
+[gd_scene load_steps=10 format=3 uid="uid://ctksqfb48qxrk"]
 
 [ext_resource type="PackedScene" uid="uid://dfkxh0l8by55q" path="res://Prefabs/UI/DestinationPointer.tscn" id="1_fj0pn"]
 [ext_resource type="Texture2D" uid="uid://xkrr45veeqbr" path="res://Art/currency.svg" id="2_880x3"]
 [ext_resource type="Script" path="res://Scripts/UI/ButtonsContainer.gd" id="3_7c123"]
 [ext_resource type="Script" path="res://Scripts/UI/FindWorkButton.gd" id="4_5xrec"]
+[ext_resource type="PackedScene" uid="uid://d4i5rffuicl1t" path="res://Prefabs/UI/CustomizePanel.tscn" id="5_30tnp"]
+[ext_resource type="Script" path="res://Scripts/UI/CustomizeButton.gd" id="5_efbsd"]
 
 [sub_resource type="Animation" id="Animation_uog41"]
 resource_name = "animateIn"
@@ -92,6 +94,7 @@ text = "SHOP"
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "CUSTOMIZE"
+script = ExtResource("5_efbsd")
 
 [node name="PlayerMoveCheckTimer" type="Timer" parent="ButtonsContainer"]
 autostart = true
@@ -101,5 +104,9 @@ libraries = {
 "": SubResource("AnimationLibrary_72cpe")
 }
 
+[node name="Panel" parent="." instance=ExtResource("5_30tnp")]
+visible = false
+
 [connection signal="button_up" from="ButtonsContainer/FindWorkButton" to="ButtonsContainer/FindWorkButton" method="_on_button_up"]
+[connection signal="button_up" from="ButtonsContainer/CustomizeButton" to="ButtonsContainer/CustomizeButton" method="_on_button_up"]
 [connection signal="timeout" from="ButtonsContainer/PlayerMoveCheckTimer" to="ButtonsContainer" method="_on_player_move_check_timer_timeout"]

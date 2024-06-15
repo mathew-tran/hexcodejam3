@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4i5rffuicl1t"]
+
+[ext_resource type="Script" path="res://Scripts/UI/CustomizePanel.gd" id="1_3b8r2"]
+[ext_resource type="PackedScene" uid="uid://iv8c2ps4j7fc" path="res://Prefabs/UI/DroneEquipButton.tscn" id="1_ougwa"]
+[ext_resource type="Texture2D" uid="uid://nlikfj0n3hxm" path="res://Art/drones/drone.svg" id="3_uce2n"]
+[ext_resource type="Texture2D" uid="uid://brdfnexe6emkd" path="res://Art/drones/drone3.svg" id="4_ptikx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8orlt"]
+bg_color = Color(0, 0, 0, 0.956863)
+
+[node name="Panel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8orlt")
+script = ExtResource("1_3b8r2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.5
+offset_top = 15.0
+offset_right = 140.5
+offset_bottom = 84.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "CUSTOMIZE"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(1016, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="Button" parent="GridContainer" instance=ExtResource("1_ougwa")]
+layout_mode = 2
+DroneTexture = ExtResource("3_uce2n")
+
+[node name="Button2" parent="GridContainer" instance=ExtResource("1_ougwa")]
+layout_mode = 2
+
+[node name="Button3" parent="GridContainer" instance=ExtResource("1_ougwa")]
+layout_mode = 2
+DroneTexture = ExtResource("4_ptikx")
+
+[node name="Button4" parent="GridContainer" instance=ExtResource("1_ougwa")]
+layout_mode = 2
+
+[node name="Button5" parent="GridContainer" instance=ExtResource("1_ougwa")]
+layout_mode = 2
+
+[node name="Button6" parent="GridContainer" instance=ExtResource("1_ougwa")]
+layout_mode = 2
+
+[node name="Button7" parent="GridContainer" instance=ExtResource("1_ougwa")]
+layout_mode = 2
+
+[node name="Button8" parent="GridContainer" instance=ExtResource("1_ougwa")]
+layout_mode = 2
+
+[node name="Button9" parent="GridContainer" instance=ExtResource("1_ougwa")]
+layout_mode = 2
+
+[node name="Button10" parent="GridContainer" instance=ExtResource("1_ougwa")]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -145.0
+offset_right = 100.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CLOSE"
+
+[connection signal="button_up" from="CloseButton" to="." method="_on_close_button_button_up"]

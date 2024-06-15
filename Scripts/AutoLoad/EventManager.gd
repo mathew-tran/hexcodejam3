@@ -5,6 +5,8 @@ signal ClearTarget
 signal AddDropArea(node)
 signal ClearDropArea(node)
 signal Initialized
+signal ChangePlayerSkin(texture)
+signal CustomizeClick
 
 var TargetRef
 var PlayerRef

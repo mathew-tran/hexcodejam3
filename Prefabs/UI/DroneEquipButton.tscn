@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://iv8c2ps4j7fc"]
+
+[ext_resource type="Script" path="res://Scripts/UI/DroneEquipButton.gd" id="1_nu68v"]
+[ext_resource type="Texture2D" uid="uid://benv1hurkwngh" path="res://Art/drones/drone2.svg" id="2_vs22c"]
+[ext_resource type="Texture2D" uid="uid://nlikfj0n3hxm" path="res://Art/drones/drone.svg" id="3_4oxmh"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(200, 200)
+script = ExtResource("1_nu68v")
+DroneTexture = ExtResource("2_vs22c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -62.5
+offset_right = 62.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4oxmh")
+stretch_mode = 5
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

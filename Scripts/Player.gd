@@ -12,20 +12,19 @@ var SideThrust = 30000
 @onready var CollisionShape = $CollisionShape2D
 @onready var PinJoint = $Connector/PinJoint2D
 
-@onready var MoveParticles = [
-	$Particle1,
-	$Partcle2
-]
-
 var bIsPressed = false
 
 func _ready():
 	$Camera2D.set_physics_process(true)
 
+	EventManager.connect("ChangePlayerSkin", Callable(self, "OnChangePlayerSkin"))
 	if EventManager.bIsInitialized == false:
 		await EventManager.Initialized
 
 	EventManager.MakeJob()
+
+func OnChangePlayerSkin(newTexture):
+	Sprite.texture = newTexture
 
 func _process(delta):
 	if Input.is_action_pressed("mouse_click"):
@@ -84,9 +83,6 @@ func _physics_process(delta):
 
 
 
-func _on_timer_timeout():
-	for particle in MoveParticles:
-		particle.emitting = bIsPressed
 
 
 
