@@ -1,7 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctksqfb48qxrk"]
+[gd_scene load_steps=3 format=3 uid="uid://ctksqfb48qxrk"]
 
 [ext_resource type="PackedScene" uid="uid://dfkxh0l8by55q" path="res://Prefabs/UI/DestinationPointer.tscn" id="1_fj0pn"]
+[ext_resource type="Texture2D" uid="uid://xkrr45veeqbr" path="res://Art/currency.svg" id="2_880x3"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Pointer" parent="." instance=ExtResource("1_fj0pn")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 150.0
+offset_bottom = 62.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_880x3")
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "20
+"
+vertical_alignment = 1
