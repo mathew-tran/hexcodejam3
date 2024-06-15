@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://gk30eduuxgab"]
+[gd_scene load_steps=6 format=3 uid="uid://gk30eduuxgab"]
 
 [ext_resource type="PackedScene" uid="uid://bvrkrgebiq7yg" path="res://Prefabs/Player.tscn" id="1_ndx04"]
 [ext_resource type="PackedScene" uid="uid://dlndouqoebtpf" path="res://Prefabs/Environment/House.tscn" id="2_1exte"]
 [ext_resource type="PackedScene" uid="uid://1xwbhjcg7t82" path="res://Prefabs/Environment/Brick.tscn" id="2_8vdo2"]
 [ext_resource type="PackedScene" uid="uid://b0hdvc4c2dpwl" path="res://Prefabs/Interactables/Box.tscn" id="3_pgbvo"]
+[ext_resource type="PackedScene" uid="uid://n47ls5q47cso" path="res://Prefabs/Interactables/DropArea.tscn" id="5_f28pe"]
 
 [node name="Level" type="Node2D"]
 
@@ -72,3 +73,6 @@ position = Vector2(-13, -205)
 
 [node name="Box" parent="." instance=ExtResource("3_pgbvo")]
 position = Vector2(-518, -302)
+
+[node name="DropArea" parent="." instance=ExtResource("5_f28pe")]
+position = Vector2(816, -2187)

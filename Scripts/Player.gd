@@ -44,7 +44,10 @@ func _input(event):
 		DisconnectObject()
 
 func DisconnectObject():
-	PinJoint.node_b = NodePath("")
+	if PinJoint.node_b != NodePath(""):
+		var box = get_node(PinJoint.node_b) as DeliveryBox
+		box.DropOff()
+		PinJoint.node_b = NodePath("")
 
 func ResetSteer():
 	SteerDirection = Vector2.ZERO
@@ -86,5 +89,7 @@ func _on_connect_joint_body_entered(body):
 
 	print("joint connect attempt")
 	if body.is_in_group("Box"):
-		if PinJoint.node_b != body.get_path():
-			PinJoint.node_b = body.get_path()
+		var box = body as DeliveryBox
+		if PinJoint.node_b != box.get_path():
+			PinJoint.node_b = box.get_path()
+			box.PickedUp()

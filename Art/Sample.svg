@@ -24,8 +24,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="2.8756734"
-     inkscape:cx="88.327138"
-     inkscape:cy="303.75494"
+     inkscape:cx="205.16934"
+     inkscape:cy="668.19132"
      inkscape:window-width="1920"
      inkscape:window-height="1010"
      inkscape:window-x="1699"
@@ -218,6 +218,29 @@
          transform="matrix(0.61718501,0.09694887,-0.04683398,1.2776061,-79.803821,-7.0928444)"
          inkscape:transform-center-x="-0.011448232"
          inkscape:transform-center-y="-0.68867908" />
+      <rect
+         style="fill:#2f2041;stroke:#2f2041;stroke-width:19.0514;stroke-linecap:square;stroke-linejoin:round"
+         id="rect2"
+         width="86.744148"
+         height="187.63539"
+         x="-17.885605"
+         y="614.48749"
+         ry="3.9232817"
+         inkscape:export-filename="Brick.svg"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="fill:#0a7e8b;stroke:#0a7e8b;stroke-width:2.62982;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none"
+         id="rect4"
+         width="191.6059"
+         height="13.824908"
+         x="-12.811931"
+         y="1026.5526"
+         ry="4.1895804"
+         rx="0"
+         inkscape:export-filename="DeliverParticle.svg"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
     </g>
     <rect
        style="fill:#2f2041;stroke:none;stroke-width:6.32097;stroke-linecap:square;stroke-linejoin:round"

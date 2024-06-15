@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://n47ls5q47cso"]
+
+[ext_resource type="Texture2D" uid="uid://dtjabr5ofcnlw" path="res://Art/DeliverParticle.svg" id="1_g1y82"]
+[ext_resource type="Script" path="res://Scripts/DropArea.gd" id="1_qqmy1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssib2"]
+size = Vector2(300, 186)
+
+[node name="DropArea" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_qqmy1")
+
+[node name="Particle" type="CPUParticles2D" parent="."]
+lifetime = 0.6
+texture = ExtResource("1_g1y82")
+gravity = Vector2(0, -980)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -83)
+shape = SubResource("RectangleShape2D_ssib2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvrkrgebiq7yg"]
+[gd_scene load_steps=12 format=3 uid="uid://bvrkrgebiq7yg"]
 
 [ext_resource type="Texture2D" uid="uid://nlikfj0n3hxm" path="res://Art/drone.svg" id="1_43fwn"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_qvhvf"]
@@ -12,7 +12,14 @@ absorbent = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dc1rf"]
 size = Vector2(116, 35)
 
+[sub_resource type="Curve" id="Curve_fxrmt"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_p5530"]
+curve = SubResource("Curve_fxrmt")
 
 [sub_resource type="Curve" id="Curve_mbrf8"]
 min_value = -1.0
