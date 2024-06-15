@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://gk30eduuxgab"]
+[gd_scene load_steps=5 format=3 uid="uid://gk30eduuxgab"]
 
 [ext_resource type="PackedScene" uid="uid://bvrkrgebiq7yg" path="res://Prefabs/Player.tscn" id="1_ndx04"]
 [ext_resource type="PackedScene" uid="uid://dlndouqoebtpf" path="res://Prefabs/Environment/House.tscn" id="2_1exte"]
+[ext_resource type="PackedScene" uid="uid://1xwbhjcg7t82" path="res://Prefabs/Environment/Brick.tscn" id="2_8vdo2"]
 [ext_resource type="PackedScene" uid="uid://b0hdvc4c2dpwl" path="res://Prefabs/Interactables/Box.tscn" id="3_pgbvo"]
 
 [node name="Level" type="Node2D"]
@@ -13,6 +14,18 @@
 [node name="House3" parent="Environment" instance=ExtResource("2_1exte")]
 position = Vector2(-630, 261)
 
+[node name="House6" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(-5978, 261)
+
+[node name="House7" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(-11572, 261)
+
+[node name="House8" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(-19971, 261)
+
+[node name="House9" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(-26014, 261)
+
 [node name="House2" parent="Environment" instance=ExtResource("2_1exte")]
 position = Vector2(743, -410)
 
@@ -21,6 +34,38 @@ position = Vector2(743.5, -1114)
 
 [node name="House5" parent="Environment" instance=ExtResource("2_1exte")]
 position = Vector2(743.5, -1824)
+
+[node name="House10" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8328.5, 266)
+
+[node name="House11" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8328.5, -444)
+
+[node name="House12" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8329, -1148)
+
+[node name="House13" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8329, -1858)
+
+[node name="House14" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8331.5, -2573)
+
+[node name="House15" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8331.5, -3283)
+
+[node name="House16" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8332, -3987)
+
+[node name="House17" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8332, -4697)
+
+[node name="Brick" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(30, 7718)
+scale = Vector2(2000, 100)
+
+[node name="Brick2" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(-13, -15184)
+scale = Vector2(2000, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_ndx04")]
 position = Vector2(-13, -205)

@@ -121,7 +121,7 @@ func _RefreshTransform():
 	# Ideally we would use determinant core function, as in commented line below, but we
 	# need to workaround for backward compat.
 	# if (_m_Trans_prev.determinant() < 0) != (_m_Trans_curr.determinant() < 0):
-	
+
 	if (_Determinant_Sign(_m_Trans_prev) != _Determinant_Sign(_m_Trans_curr)):
 		_m_Flip = true
 
@@ -132,7 +132,7 @@ func _Determinant_Sign(t:Transform2D)->bool:
 	# godot versions.
 	var d = (t.x.x * t.y.y) - (t.x.y * t.y.x)
 	return d >= 0.0
-	
+
 
 func _FindTarget():
 	_m_Target = null
@@ -144,7 +144,7 @@ func _FindTarget():
 		if parent and (parent is Node2D):
 			_m_Target = parent
 		return
-		
+
 	var targ = get_node(target)
 
 	if ! targ:

@@ -1,23 +1,54 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvrkrgebiq7yg"]
+[gd_scene load_steps=11 format=3 uid="uid://bvrkrgebiq7yg"]
 
 [ext_resource type="Texture2D" uid="uid://nlikfj0n3hxm" path="res://Art/drone.svg" id="1_43fwn"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_qvhvf"]
 [ext_resource type="Texture2D" uid="uid://4yaytdobspkj" path="res://Art/SmokeParticle.svg" id="3_y1k3q"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1152u"]
+friction = 0.6
+bounce = 0.2
+absorbent = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dc1rf"]
 size = Vector2(116, 35)
 
+[sub_resource type="CurveTexture" id="CurveTexture_p5530"]
+
+[sub_resource type="Curve" id="Curve_mbrf8"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.394759), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_afrxb"]
+curve = SubResource("Curve_mbrf8")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3xc3h"]
 particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
+emission_shape_scale = Vector3(1, 0, 1)
+angle_min = -249.5
+angle_max = 637.1
+angle_curve = SubResource("CurveTexture_p5530")
+direction = Vector3(0, 0, 0)
+spread = 76.185
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.0
+hue_variation_max = 0.1
+hue_variation_curve = SubResource("CurveTexture_afrxb")
+collision_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8w75"]
 size = Vector2(80, 60)
 
 [node name="Player" type="RigidBody2D"]
+top_level = true
+physics_material_override = SubResource("PhysicsMaterial_1152u")
+gravity_scale = 1.5
 can_sleep = false
 lock_rotation = true
 continuous_cd = 2
+constant_force = Vector2(0, 10)
 script = ExtResource("1_qvhvf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -28,21 +59,40 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_dc1rf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, 50)
+zoom = Vector2(0.8, 0.8)
 limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 8.0
+position_smoothing_speed = 30.0
 
 [node name="Particle1" type="GPUParticles2D" parent="."]
 show_behind_parent = true
-position = Vector2(53, 11)
+position = Vector2(53, -2)
+amount = 100
 process_material = SubResource("ParticleProcessMaterial_3xc3h")
 texture = ExtResource("3_y1k3q")
+lifetime = 2.0
+speed_scale = 10.0
+explosiveness = 0.2
+draw_order = 2
+trail_enabled = true
+trail_lifetime = 10.0
+trail_sections = 20
+trail_section_subdivisions = 20
 
 [node name="Partcle2" type="GPUParticles2D" parent="."]
 show_behind_parent = true
-position = Vector2(-53, 11)
+position = Vector2(-53, -2)
+amount = 100
 process_material = SubResource("ParticleProcessMaterial_3xc3h")
 texture = ExtResource("3_y1k3q")
+lifetime = 2.0
+speed_scale = 10.0
+explosiveness = 0.2
+draw_order = 2
+trail_enabled = true
+trail_lifetime = 10.0
+trail_sections = 20
+trail_section_subdivisions = 20
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
@@ -55,6 +105,9 @@ position = Vector2(0, 32)
 node_a = NodePath("../..")
 bias = 0.23
 disable_collision = false
+length = 120.0
+rest_length = 20.0
+damping = 0.5
 
 [node name="ConnectJoint" type="Area2D" parent="Connector"]
 collision_layer = 0
@@ -62,6 +115,26 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Connector/ConnectJoint"]
 shape = SubResource("RectangleShape2D_c8w75")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(-5, -2)
+amount = 10
+lifetime = 0.2
+texture = ExtResource("3_y1k3q")
+direction = Vector2(0, 0)
+gravity = Vector2(0, -500)
+color = Color(1, 1, 1, 0.101961)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(5, -2)
+amount = 10
+lifetime = 0.2
+texture = ExtResource("3_y1k3q")
+direction = Vector2(0, 0)
+gravity = Vector2(0, -500)
+color = Color(1, 1, 1, 0.101961)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Connector/ConnectJoint" to="." method="_on_connect_joint_body_entered"]

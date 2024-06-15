@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var LastPositionTouched = Vector2.ZERO
 var SteerDirection = Vector2.ZERO
-var UpThrust = 90000
+var UpThrust = 190000
 var SideThrust = 30000
 
 
@@ -14,8 +14,16 @@ var SideThrust = 30000
 	$Particle1,
 	$Partcle2
 ]
+
+var bIsPressed = false
+
+func _ready():
+	$Camera2D.set_physics_process(true)
+	pass
+
 func _process(delta):
 	if Input.is_action_pressed("mouse_click"):
+		bIsPressed = true
 		apply_force(Vector2.UP * UpThrust * delta, Vector2.ZERO)
 		LastPositionTouched = get_global_mouse_position()
 		if IsClosetoXPosition():
@@ -28,6 +36,8 @@ func _process(delta):
 			SteerDirection = Vector2.RIGHT
 		else:
 			ResetSteer()
+	else:
+		bIsPressed = false
 
 func _input(event):
 	if event.is_action_pressed("right_click"):
@@ -63,7 +73,7 @@ func _physics_process(delta):
 
 func _on_timer_timeout():
 	for particle in MoveParticles:
-		particle.emitting = linear_velocity.x != 0 or linear_velocity.y != 0
+		particle.emitting = bIsPressed
 
 
 
