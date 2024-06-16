@@ -168,6 +168,12 @@ position = Vector2(-643, -238)
 [node name="SpawnPoint2" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
 position = Vector2(756, -2325)
 
+[node name="SpawnPoint8" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(-3835, 452)
+
+[node name="SpawnPoint9" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(-11569, -239)
+
 [node name="SpawnPoint6" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
 position = Vector2(5041, 84)
 

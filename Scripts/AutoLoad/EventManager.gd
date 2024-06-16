@@ -73,7 +73,7 @@ func GetTwoRandomPoints():
 	SpawnPoints.shuffle()
 	var points = []
 	var index = 1
-	while(SpawnPoints[index].distance_to(GetPlayer().global_position) < 500):
+	while(SpawnPoints[index].distance_to(GetPlayer().global_position) < 600):
 		index += 1
 	points.append(SpawnPoints[index])
 	points.append(SpawnPoints[0])
