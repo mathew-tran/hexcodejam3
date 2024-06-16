@@ -59,7 +59,7 @@ bias = 0.5
 disable_collision = false
 length = 100.0
 rest_length = 20.0
-stiffness = 3.0
+stiffness = 10.0
 damping = 0.5
 
 [node name="ConnectJoint" type="Area2D" parent="Connector"]

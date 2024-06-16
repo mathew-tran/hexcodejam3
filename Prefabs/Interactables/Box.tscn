@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0hdvc4c2dpwl"]
+[gd_scene load_steps=6 format=3 uid="uid://b0hdvc4c2dpwl"]
 
 [ext_resource type="Texture2D" uid="uid://cjultqijpcb5r" path="res://Art/Box.svg" id="1_d47c1"]
 [ext_resource type="Script" path="res://Scripts/Box.gd" id="1_tlfyw"]
 [ext_resource type="Texture2D" uid="uid://byhqhxurb4pet" path="res://Art/PickupParticle.svg" id="2_l61rd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w10e3"]
+friction = 0.7
+bounce = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1t2vn"]
 size = Vector2(144, 88)
@@ -10,6 +14,7 @@ size = Vector2(144, 88)
 [node name="Box" type="RigidBody2D" groups=["Box"]]
 collision_layer = 3
 mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_w10e3")
 script = ExtResource("1_tlfyw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
