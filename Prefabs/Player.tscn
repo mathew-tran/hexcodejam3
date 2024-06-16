@@ -43,7 +43,6 @@ position_smoothing_speed = 30.0
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 2)
-default_color = Color(1, 0.768627, 0.317647, 1)
 joint_mode = 2
 end_cap_mode = 2
 

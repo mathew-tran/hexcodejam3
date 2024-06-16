@@ -106,6 +106,8 @@ func _on_connect_joint_body_entered(body):
 	if body.is_in_group("Box"):
 		var box = body as DeliveryBox
 		if PinJoint.node_b != box.get_path():
+			var strengthUsed = lerp(0, 1, (box.mass/1))
+			$Line2D.default_color = lerp(Color("ffffff"), Color("ff000c"), strengthUsed)
 			PinJoint.node_b = box.get_path()
 			box.PickedUp()
 
