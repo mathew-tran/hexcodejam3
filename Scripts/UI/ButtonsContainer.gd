@@ -7,12 +7,6 @@ var bShowButtons = false
 func _ready():
 	$AnimationPlayer.play("animateIn")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_player_move_check_timer_timeout():
 	var player = EventManager.GetPlayer() as Player
 

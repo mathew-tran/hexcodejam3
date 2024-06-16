@@ -89,6 +89,7 @@ func MakeJob():
 	var box = load(GetBoxClass()).instantiate()
 	box.global_position = points[0]
 	GetItemsGroup().add_child(box)
+	box.Setup()
 
 	var area = load(GetAreaClass()).instantiate()
 	area.global_position = points[1]
@@ -97,15 +98,19 @@ func MakeJob():
 	RewardAmount = 10 + randi() % 5 + roundi(points[0].distance_to(points[1]) / 500)
 	FindBox()
 
+func AddMoney(amount):
+	Money += amount
+	if Money > 999999:
+		Money = 999999
+	MoneyUpdate.emit()
 func GiveReward():
 	var text = load("res://Prefabs/UI/PopupText.tscn").instantiate()
 	text.global_position = GetPlayer().global_position
 	GetItemsGroup().add_child(text)
 	text.Setup(RewardAmount)
 
-	Money += RewardAmount
+	AddMoney(RewardAmount)
 	RewardAmount = 0
-	MoneyUpdate.emit()
 
 	AttemptRandomBonus()
 
@@ -114,7 +119,7 @@ func AttemptRandomBonus():
 	if result >= 85:
 		await get_tree().create_timer(.5).timeout
 		var reward = 25 + (randi() % 5 ) * 5
-		Money += reward
+		AddMoney(reward)
 		var text = load("res://Prefabs/UI/PopupText.tscn").instantiate()
 		text.global_position = GetPlayer().global_position
 		GetItemsGroup().add_child(text)

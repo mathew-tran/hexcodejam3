@@ -23,7 +23,6 @@ func _ready():
 		await EventManager.Initialized
 
 	EventManager.MakeJob()
-	$Area2D
 
 func OnChangePlayerSkin(newTexture):
 	Sprite.texture = newTexture
@@ -52,17 +51,17 @@ func _process(delta):
 			ResetSteer()
 	else:
 		bIsPressed = false
+		LastPositionTouched.x = global_position.x
 
 func _input(event):
 	if event.is_action_pressed("right_click"):
 		DisconnectObject()
 
 func DisconnectObject():
-	if PinJoint.node_b != NodePath(""):
-		var box = get_node(PinJoint.node_b) as DeliveryBox
-		if is_instance_valid(box):
-			box.DropOff()
-		PinJoint.node_b = NodePath("")
+	var box = get_node(PinJoint.node_b) as DeliveryBox
+	if is_instance_valid(box):
+		box.DropOff()
+	PinJoint.node_b = NodePath("")
 	Line.points[1] = Vector2.ZERO
 
 func ResetSteer():

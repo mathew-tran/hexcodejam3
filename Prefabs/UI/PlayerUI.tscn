@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctksqfb48qxrk"]
+[gd_scene load_steps=14 format=3 uid="uid://ctksqfb48qxrk"]
 
 [ext_resource type="PackedScene" uid="uid://dfkxh0l8by55q" path="res://Prefabs/UI/DestinationPointer.tscn" id="1_fj0pn"]
 [ext_resource type="Texture2D" uid="uid://xkrr45veeqbr" path="res://Art/currency.svg" id="2_880x3"]
@@ -7,6 +7,18 @@
 [ext_resource type="Script" path="res://Scripts/UI/FindWorkButton.gd" id="4_5xrec"]
 [ext_resource type="PackedScene" uid="uid://d4i5rffuicl1t" path="res://Prefabs/UI/CustomizePanel.tscn" id="5_30tnp"]
 [ext_resource type="Script" path="res://Scripts/UI/CustomizeButton.gd" id="5_efbsd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g6ru"]
+bg_color = Color(0, 0, 0, 0.584314)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iskvb"]
+
+[sub_resource type="Theme" id="Theme_43hy3"]
+Panel/styles/panel = SubResource("StyleBoxFlat_iskvb")
 
 [sub_resource type="Animation" id="Animation_1m0bp"]
 length = 0.001
@@ -48,21 +60,29 @@ _data = {
 
 [node name="Pointer" parent="." instance=ExtResource("1_fj0pn")]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Panel2" type="Panel" parent="."]
 offset_left = 5.0
 offset_top = 5.0
-offset_right = 150.0
-offset_bottom = 62.0
+offset_right = 205.0
+offset_bottom = 85.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4g6ru")
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2"]
+offset_left = 7.0
+offset_top = 14.0
+offset_right = 193.0
+offset_bottom = 71.0
+theme = SubResource("Theme_43hy3")
+
+[node name="TextureRect" type="TextureRect" parent="Panel2/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_880x3")
 
-[node name="Money" type="Label" parent="HBoxContainer"]
+[node name="Money" type="Label" parent="Panel2/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "20
+text = "200000
 "
 vertical_alignment = 1
 script = ExtResource("3_jiboh")
