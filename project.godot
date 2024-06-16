@@ -54,4 +54,4 @@ common/enable_object_picking=false
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.0352941, 0.227451, 0.329412, 1)
+environment/defaults/default_clear_color=Color(0.00438762, 0.0634814, 0.106251, 1)

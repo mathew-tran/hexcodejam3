@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://gk30eduuxgab"]
+[gd_scene load_steps=7 format=3 uid="uid://gk30eduuxgab"]
 
 [ext_resource type="PackedScene" uid="uid://bvrkrgebiq7yg" path="res://Prefabs/Player.tscn" id="1_ndx04"]
 [ext_resource type="PackedScene" uid="uid://dlndouqoebtpf" path="res://Prefabs/Environment/House.tscn" id="2_1exte"]
 [ext_resource type="PackedScene" uid="uid://1xwbhjcg7t82" path="res://Prefabs/Environment/Brick.tscn" id="2_8vdo2"]
 [ext_resource type="PackedScene" uid="uid://c5vr2xgm8fdha" path="res://Prefabs/Game/SpawnPoint.tscn" id="5_vatuq"]
 [ext_resource type="PackedScene" uid="uid://ctksqfb48qxrk" path="res://Prefabs/UI/PlayerUI.tscn" id="6_cuxqq"]
+[ext_resource type="Texture2D" uid="uid://tid3n7as1qd4" path="res://Art/Parallax/BGBase.png" id="6_tk8lp"]
 
 [node name="Level" type="Node2D"]
 
@@ -13,7 +14,7 @@
 [node name="House" parent="Environment" instance=ExtResource("2_1exte")]
 
 [node name="House3" parent="Environment" instance=ExtResource("2_1exte")]
-position = Vector2(-630, 261)
+position = Vector2(-630, 263)
 
 [node name="House6" parent="Environment" instance=ExtResource("2_1exte")]
 position = Vector2(-5978, 261)
@@ -65,18 +66,39 @@ position = Vector2(30, 7718)
 scale = Vector2(2000, 100)
 
 [node name="Brick2" parent="Environment" instance=ExtResource("2_8vdo2")]
-position = Vector2(-13, -15184)
-scale = Vector2(2000, 1)
+position = Vector2(-13, -18472)
+scale = Vector2(2000, 47.3099)
+
+[node name="Brick3" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(-148949, -18472)
+rotation = -1.57079
+scale = Vector2(2000, 47.3099)
+
+[node name="Brick4" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(147197, -18472)
+rotation = -1.57079
+scale = Vector2(2000, 47.3099)
 
 [node name="Player" parent="." instance=ExtResource("1_ndx04")]
 position = Vector2(-13, -205)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("6_cuxqq")]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(2060, 1070)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_tk8lp")
+
 [node name="SpawnNodes" type="Node2D" parent="." groups=["Items"]]
 
 [node name="SpawnPoint" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
-position = Vector2(-643, -240)
+position = Vector2(-643, -238)
 
 [node name="SpawnPoint2" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
 position = Vector2(756, -2325)

@@ -40,6 +40,9 @@ position_smoothing_speed = 30.0
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 2)
+default_color = Color(1, 0.768627, 0.317647, 1)
+joint_mode = 2
+end_cap_mode = 2
 
 [node name="Connector" type="Node2D" parent="."]
 position = Vector2(0, 32)
@@ -48,8 +51,9 @@ position = Vector2(0, 32)
 node_a = NodePath("../..")
 bias = 0.23
 disable_collision = false
-length = 120.0
-rest_length = 20.0
+length = 110.0
+rest_length = 100.0
+stiffness = 10.0
 damping = 0.5
 
 [node name="ConnectJoint" type="Area2D" parent="Connector"]
