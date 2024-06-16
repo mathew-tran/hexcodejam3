@@ -83,6 +83,7 @@ func DisconnectObject():
 		box.DropOff()
 	PinJoint.node_b = NodePath("")
 	Line.points[1] = Line.points[0]
+	EventManager.PlayerDisconnect.emit()
 
 func ResetSteer():
 	SteerDirection = Vector2.ZERO
@@ -124,4 +125,5 @@ func _on_connect_joint_body_entered(body):
 			$Line2D.default_color = lerp(Color("ffffff"), Color("ff000c"), strengthUsed)
 			PinJoint.node_b = box.get_path()
 			box.PickedUp()
+			EventManager.PlayerConnect.emit()
 

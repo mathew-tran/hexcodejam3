@@ -23,7 +23,6 @@ physics_material_override = SubResource("PhysicsMaterial_1152u")
 gravity_scale = 2.0
 can_sleep = false
 continuous_cd = 2
-angular_damp = 5.0
 constant_force = Vector2(0, 10)
 script = ExtResource("1_qvhvf")
 
@@ -42,19 +41,25 @@ limit_smoothed = true
 position_smoothing_speed = 30.0
 
 [node name="Line2D" type="Line2D" parent="."]
+show_behind_parent = true
 points = PackedVector2Array(0, 0, 0, 2)
+width = 20.0
 joint_mode = 2
+begin_cap_mode = 2
 end_cap_mode = 2
+sharp_limit = 1.0
+antialiased = true
 
 [node name="Connector" type="Node2D" parent="."]
 position = Vector2(0, 32)
 
 [node name="PinJoint2D" type="DampedSpringJoint2D" parent="Connector"]
 node_a = NodePath("../..")
-bias = 0.23
+bias = 0.5
 disable_collision = false
 length = 100.0
-rest_length = 60.0
+rest_length = 20.0
+stiffness = 3.0
 damping = 0.5
 
 [node name="ConnectJoint" type="Area2D" parent="Connector"]

@@ -8,6 +8,8 @@ signal Initialized
 signal ChangePlayerSkin(texture)
 signal CustomizeClick
 signal MoneyUpdate
+signal PlayerConnect
+signal PlayerDisconnect
 
 var RewardAmount = 0
 var Money = 0

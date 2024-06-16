@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctksqfb48qxrk"]
+[gd_scene load_steps=15 format=3 uid="uid://ctksqfb48qxrk"]
 
 [ext_resource type="PackedScene" uid="uid://dfkxh0l8by55q" path="res://Prefabs/UI/DestinationPointer.tscn" id="1_fj0pn"]
 [ext_resource type="Texture2D" uid="uid://xkrr45veeqbr" path="res://Art/currency.svg" id="2_880x3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/FindWorkButton.gd" id="4_5xrec"]
 [ext_resource type="PackedScene" uid="uid://d4i5rffuicl1t" path="res://Prefabs/UI/CustomizePanel.tscn" id="5_30tnp"]
 [ext_resource type="Script" path="res://Scripts/UI/CustomizeButton.gd" id="5_efbsd"]
+[ext_resource type="Script" path="res://Scripts/DisconnectButton.gd" id="8_bd6gg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g6ru"]
 bg_color = Color(0, 0, 0, 0.584314)
@@ -68,6 +69,7 @@ offset_bottom = 85.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4g6ru")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel2"]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 14.0
 offset_right = 193.0
@@ -130,6 +132,23 @@ libraries = {
 [node name="Panel" parent="." instance=ExtResource("5_30tnp")]
 visible = false
 
+[node name="DisconnectButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -157.0
+offset_right = 100.0
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Disconnect"
+script = ExtResource("8_bd6gg")
+
 [connection signal="button_up" from="ButtonsContainer/FindWorkButton" to="ButtonsContainer/FindWorkButton" method="_on_button_up"]
 [connection signal="button_up" from="ButtonsContainer/CustomizeButton" to="ButtonsContainer/CustomizeButton" method="_on_button_up"]
 [connection signal="timeout" from="ButtonsContainer/PlayerMoveCheckTimer" to="ButtonsContainer" method="_on_player_move_check_timer_timeout"]
+[connection signal="button_up" from="DisconnectButton" to="DisconnectButton" method="_on_button_up"]
