@@ -24,7 +24,7 @@ func _on_player_move_check_timer_timeout():
 				bShowButtons = false
 		else:
 			PlayerTimesNotMoved += 1
-			if PlayerTimesNotMoved >= 3:
+			if PlayerTimesNotMoved >= 2:
 				if bShowButtons == false:
 					bShowButtons = true
 					$AnimationPlayer.play_backwards("animateIn")

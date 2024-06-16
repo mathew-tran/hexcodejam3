@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvrkrgebiq7yg"]
+[gd_scene load_steps=10 format=3 uid="uid://bvrkrgebiq7yg"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_qvhvf"]
 [ext_resource type="Texture2D" uid="uid://nlikfj0n3hxm" path="res://Art/drones/drone.svg" id="2_t7oyq"]
@@ -7,20 +7,24 @@
 [ext_resource type="Texture2D" uid="uid://c5c43oaw4xi78" path="res://Art/CollisionParticle.svg" id="5_kntua"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1152u"]
-friction = 0.78
+friction = 0.2
 bounce = 0.2
+absorbent = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dc1rf"]
 size = Vector2(116, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8w75"]
-size = Vector2(500, 200)
+size = Vector2(80, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ilix"]
+size = Vector2(130, 30)
 
 [node name="Player" type="RigidBody2D" groups=["Player"]]
 top_level = true
 collision_layer = 5
 physics_material_override = SubResource("PhysicsMaterial_1152u")
-gravity_scale = 2.0
+gravity_scale = 3.0
 can_sleep = false
 lock_rotation = true
 continuous_cd = 2
@@ -64,7 +68,6 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Connector/ConnectJoint"]
-position = Vector2(0, -28)
 shape = SubResource("RectangleShape2D_c8w75")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
@@ -100,8 +103,13 @@ texture = ExtResource("5_kntua")
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 50.0
-initial_velocity_max = 200.0
+initial_velocity_max = 100.0
 scale_amount_min = 0.3
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_0ilix")
 
 [connection signal="body_entered" from="Connector/ConnectJoint" to="." method="_on_connect_joint_body_entered"]
