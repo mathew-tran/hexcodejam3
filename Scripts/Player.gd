@@ -37,7 +37,6 @@ func OrientUpright(delta):
 		targetRotation = deg_to_rad(-5)
 
 	if abs(linear_velocity.x) > 1:
-		print(linear_velocity.x/100)
 		targetRotation *= abs(linear_velocity.x/80)
 	var rotationDifference = targetRotation - rotation
 	rotationDifference = wrapf(rotationDifference, -PI, PI)
