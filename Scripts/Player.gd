@@ -14,6 +14,8 @@ var SideThrust = 50000
 @onready var Line = $Line2D
 
 var bIsPressed = false
+var LastRotation = Vector2.ZERO
+var RotationProgress = 0
 
 func _ready():
 	$Camera2D.set_physics_process(true)
@@ -27,6 +29,20 @@ func _ready():
 func OnChangePlayerSkin(newTexture):
 	Sprite.texture = newTexture
 
+func OrientUpright(delta):
+	var targetRotation = 0.0
+	if LastPositionTouched.x > global_position.x:
+		targetRotation = deg_to_rad(5)
+	elif LastPositionTouched.x < global_position.x:
+		targetRotation = deg_to_rad(-5)
+
+	if abs(linear_velocity.x) > 1:
+		print(linear_velocity.x/100)
+		targetRotation *= abs(linear_velocity.x/80)
+	var rotationDifference = targetRotation - rotation
+	rotationDifference = wrapf(rotationDifference, -PI, PI)
+	angular_velocity = rotationDifference * 10
+
 func _process(delta):
 	if IsConnected():
 		var obj = get_node_or_null(PinJoint.node_b)
@@ -38,15 +54,15 @@ func _process(delta):
 
 	if Input.is_action_pressed("mouse_click"):
 		bIsPressed = true
+		OrientUpright(delta)
+
 		var verticalSpeed = linear_velocity.y
 		if verticalSpeed > -1500 or verticalSpeed > 0 :
 			apply_force(Vector2.UP * UpThrust * delta, Vector2.ZERO)
 		LastPositionTouched = get_global_mouse_position()
 		if IsClosetoXPosition():
 			ResetSteer()
-			return
-
-		if LastPositionTouched.x < global_position.x:
+		elif LastPositionTouched.x < global_position.x:
 			SteerDirection = Vector2.LEFT
 		elif LastPositionTouched.x > global_position.x:
 			SteerDirection = Vector2.RIGHT
@@ -55,6 +71,8 @@ func _process(delta):
 	else:
 		bIsPressed = false
 		LastPositionTouched.x = global_position.x
+		LastRotation = rotation_degrees
+		RotationProgress = 0
 
 func _input(event):
 	if event.is_action_pressed("right_click"):
@@ -92,9 +110,6 @@ func _physics_process(delta):
 			targetRotation = 15
 		else:
 			targetRotation = -15
-
-	Sprite.rotation_degrees = targetRotation
-	CollisionShape.rotation_degrees = Sprite.rotation_degrees
 
 func IsConnected():
 	return PinJoint.node_b != NodePath("")

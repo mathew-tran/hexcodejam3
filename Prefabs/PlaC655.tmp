@@ -23,7 +23,6 @@ physics_material_override = SubResource("PhysicsMaterial_1152u")
 gravity_scale = 2.0
 can_sleep = false
 continuous_cd = 2
-angular_damp = 5.0
 constant_force = Vector2(0, 10)
 script = ExtResource("1_qvhvf")
 
@@ -53,8 +52,8 @@ position = Vector2(0, 32)
 node_a = NodePath("../..")
 bias = 0.23
 disable_collision = false
-length = 100.0
-rest_length = 60.0
+length = 200.0
+rest_length = 100.0
 damping = 0.5
 
 [node name="ConnectJoint" type="Area2D" parent="Connector"]
