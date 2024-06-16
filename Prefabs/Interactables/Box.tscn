@@ -9,7 +9,7 @@ size = Vector2(144, 88)
 
 [node name="Box" type="RigidBody2D" groups=["Box"]]
 collision_layer = 3
-mass = 0.2
+mass = 0.1
 script = ExtResource("1_tlfyw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

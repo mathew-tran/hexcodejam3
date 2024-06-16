@@ -95,7 +95,8 @@ func MakeJob():
 	area.global_position = points[1]
 	GetItemsGroup().add_child(area)
 
-	RewardAmount = 10 + randi() % 5 + roundi(points[0].distance_to(points[1]) / 500)
+	var massModifier = round(box.mass * 50)
+	RewardAmount = massModifier + 10 + randi() % 5 + roundi(points[0].distance_to(points[1]) / 500)
 	FindBox()
 
 func AddMoney(amount):

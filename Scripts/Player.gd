@@ -4,8 +4,8 @@ class_name Player
 
 var LastPositionTouched = Vector2.ZERO
 var SteerDirection = Vector2.ZERO
-var UpThrust = 190000
-var SideThrust = 20000
+var UpThrust = 250000
+var SideThrust = 50000
 
 
 @onready var Sprite = $Sprite2D
