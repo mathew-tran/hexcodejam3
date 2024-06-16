@@ -107,6 +107,19 @@ func GiveReward():
 	RewardAmount = 0
 	MoneyUpdate.emit()
 
+	AttemptRandomBonus()
+
+func AttemptRandomBonus():
+	var result = randi() % 100
+	if result >= 85:
+		await get_tree().create_timer(.5).timeout
+		var reward = 25 + (randi() % 5 ) * 5
+		Money += reward
+		var text = load("res://Prefabs/UI/PopupText.tscn").instantiate()
+		text.global_position = GetPlayer().global_position
+		GetItemsGroup().add_child(text)
+		text.Setup(reward)
+
 
 
 func GetBoxClass():

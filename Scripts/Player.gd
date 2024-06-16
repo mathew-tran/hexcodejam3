@@ -11,6 +11,7 @@ var SideThrust = 30000
 @onready var Sprite = $Sprite2D
 @onready var CollisionShape = $CollisionShape2D
 @onready var PinJoint = $Connector/PinJoint2D
+@onready var Line = $Line2D
 
 var bIsPressed = false
 
@@ -27,6 +28,9 @@ func OnChangePlayerSkin(newTexture):
 	Sprite.texture = newTexture
 
 func _process(delta):
+	if IsConnected():
+		Line.points[1] = to_local(get_node(PinJoint.node_b).global_position)
+
 	if Input.is_action_pressed("mouse_click"):
 		bIsPressed = true
 		apply_force(Vector2.UP * UpThrust * delta, Vector2.ZERO)
@@ -54,6 +58,7 @@ func DisconnectObject():
 		if is_instance_valid(box):
 			box.DropOff()
 		PinJoint.node_b = NodePath("")
+	Line.points[1] = Vector2.ZERO
 
 func ResetSteer():
 	SteerDirection = Vector2.ZERO
