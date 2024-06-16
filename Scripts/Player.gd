@@ -32,6 +32,9 @@ func _process(delta):
 		var obj = get_node(PinJoint.node_b)
 		if is_instance_valid(obj):
 			Line.points[1] = to_local(obj.global_position)
+		else:
+			DisconnectObject()
+
 
 	if Input.is_action_pressed("mouse_click"):
 		bIsPressed = true
@@ -62,7 +65,7 @@ func DisconnectObject():
 	if is_instance_valid(box):
 		box.DropOff()
 	PinJoint.node_b = NodePath("")
-	Line.points[1] = Vector2.ZERO
+	Line.points[1] = Line.points[0]
 
 func ResetSteer():
 	SteerDirection = Vector2.ZERO

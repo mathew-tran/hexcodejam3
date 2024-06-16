@@ -12,11 +12,7 @@ func _init():
 	else:
 		mass = randf_range(.6, .8)
 func _ready():
-
 	EventManager.AddTarget.emit(self)
-
-func Setup():
-	$CollisionShape2D.disabled = false
 
 func PickedUp():
 	PickedUpParticle.emitting = false

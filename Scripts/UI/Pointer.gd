@@ -12,7 +12,7 @@ func _process(delta):
 
 		var player = EventManager.GetPlayer()
 		var distance = player.global_position.distance_to(target.global_position)
-		$"../Label".text = "%0.2f km" % (distance/7500)
+		$"../Label".text = "%0.3f km" % (distance/7500)
 
 		if distance > 500:
 			visible = true

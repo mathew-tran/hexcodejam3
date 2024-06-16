@@ -89,7 +89,6 @@ func MakeJob():
 	var box = load(GetBoxClass()).instantiate()
 	box.global_position = points[0]
 	GetItemsGroup().add_child(box)
-	box.Setup()
 
 	var area = load(GetAreaClass()).instantiate()
 	area.global_position = points[1]
@@ -98,6 +97,8 @@ func MakeJob():
 	var massModifier = round(box.mass * 50)
 	RewardAmount = massModifier + 10 + randi() % 5 + roundi(points[0].distance_to(points[1]) / 500)
 	FindBox()
+
+	EventManager.GetPlayer().DisconnectObject()
 
 func AddMoney(amount):
 	Money += amount
