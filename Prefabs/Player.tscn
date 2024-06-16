@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvrkrgebiq7yg"]
+[gd_scene load_steps=8 format=3 uid="uid://bvrkrgebiq7yg"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_qvhvf"]
 [ext_resource type="Texture2D" uid="uid://nlikfj0n3hxm" path="res://Art/drones/drone.svg" id="2_t7oyq"]
 [ext_resource type="Texture2D" uid="uid://4yaytdobspkj" path="res://Art/SmokeParticle.svg" id="3_y1k3q"]
+[ext_resource type="Texture2D" uid="uid://bppbnt0sx65pn" path="res://Art/Light.svg" id="4_y0myy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1152u"]
 friction = 0.6
@@ -26,6 +27,7 @@ constant_force = Vector2(0, 10)
 script = ExtResource("1_qvhvf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
 texture = ExtResource("2_t7oyq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -82,5 +84,9 @@ texture = ExtResource("3_y1k3q")
 direction = Vector2(0, 0)
 gravity = Vector2(0, -500)
 color = Color(1, 1, 1, 0.101961)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("4_y0myy")
+texture_scale = 3.0
 
 [connection signal="body_entered" from="Connector/ConnectJoint" to="." method="_on_connect_joint_body_entered"]
