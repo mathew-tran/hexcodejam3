@@ -6,15 +6,23 @@ var Target
 func _ready():
 	visible = false
 
-func _on_timer_timeout():
+func _process(delta):
 	var target = EventManager.GetDestination()
 	if is_instance_valid(target):
 
 		var player = EventManager.GetPlayer()
-		if player.global_position.distance_to(target.global_position) > 500:
+		var distance = player.global_position.distance_to(target.global_position)
+		$"../Label".text = "%0.2f km" % (distance/7500)
+
+		if distance > 500:
 			visible = true
 			rotation = (target.global_position - player.global_position).angle()
+			$"../Label".global_position = global_position - Vector2(0,32)
 		else:
 			visible = false
+		$"../Label".visible = visible
 	else:
 		visible = false
+		$"../Label".visible = visible
+
+
