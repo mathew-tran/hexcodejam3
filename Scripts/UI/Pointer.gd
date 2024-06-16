@@ -6,7 +6,7 @@ var Target
 func _ready():
 	visible = false
 
-func _process(delta):
+func _process(_delta):
 	var target = EventManager.GetDestination()
 	if is_instance_valid(target):
 

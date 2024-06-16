@@ -29,7 +29,7 @@ func OnChangePlayerSkin(newTexture):
 
 func _process(delta):
 	if IsConnected():
-		var obj = get_node(PinJoint.node_b)
+		var obj = get_node_or_null(PinJoint.node_b)
 		if is_instance_valid(obj):
 			Line.points[1] = to_local(obj.global_position)
 		else:
@@ -61,7 +61,7 @@ func _input(event):
 		DisconnectObject()
 
 func DisconnectObject():
-	var box = get_node(PinJoint.node_b) as DeliveryBox
+	var box = get_node_or_null(PinJoint.node_b) as DeliveryBox
 	if is_instance_valid(box):
 		box.DropOff()
 	PinJoint.node_b = NodePath("")
