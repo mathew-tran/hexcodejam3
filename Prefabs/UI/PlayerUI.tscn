@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ctksqfb48qxrk"]
+[gd_scene load_steps=22 format=3 uid="uid://ctksqfb48qxrk"]
 
 [ext_resource type="PackedScene" uid="uid://dfkxh0l8by55q" path="res://Prefabs/UI/DestinationPointer.tscn" id="1_fj0pn"]
 [ext_resource type="Texture2D" uid="uid://xkrr45veeqbr" path="res://Art/currency.svg" id="2_880x3"]
@@ -60,6 +60,18 @@ _data = {
 "animateIn": SubResource("Animation_uog41")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t4e2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ambgl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyfce"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0if5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Pointer" parent="." instance=ExtResource("1_fj0pn")]
@@ -98,10 +110,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 470.0
-offset_top = 820.0
-offset_right = 970.0
-offset_bottom = 900.0
+offset_left = -250.0
+offset_top = -80.0
+offset_right = 250.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("3_7c123")
@@ -158,6 +169,10 @@ anchor_right = 1.0
 offset_left = -92.0
 offset_bottom = 94.0
 grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0t4e2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ambgl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jyfce")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b0if5")
 icon = ExtResource("9_e8y87")
 script = ExtResource("10_6c6gg")
 

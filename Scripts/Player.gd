@@ -29,7 +29,7 @@ func _ready():
 func OnChangePlayerSkin(newTexture):
 	Sprite.texture = newTexture
 
-func OrientUpright(delta):
+func OrientUpright(_delta):
 	var targetRotation = 0.0
 	if LastPositionTouched.x > global_position.x:
 		targetRotation = deg_to_rad(5)
@@ -40,7 +40,7 @@ func OrientUpright(delta):
 		targetRotation *= abs(linear_velocity.x/80)
 	var rotationDifference = targetRotation - rotation
 	rotationDifference = wrapf(rotationDifference, -PI, PI)
-	angular_velocity = rotationDifference * 10000 * delta
+	angular_velocity = rotationDifference * 10
 
 func _process(delta):
 	if IsConnected():
