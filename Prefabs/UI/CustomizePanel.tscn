@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4i5rffuicl1t"]
+[gd_scene load_steps=7 format=3 uid="uid://d4i5rffuicl1t"]
 
 [ext_resource type="Script" path="res://Scripts/UI/CustomizePanel.gd" id="1_3b8r2"]
 [ext_resource type="PackedScene" uid="uid://iv8c2ps4j7fc" path="res://Prefabs/UI/DroneEquipButton.tscn" id="1_ougwa"]
-[ext_resource type="Texture2D" uid="uid://nlikfj0n3hxm" path="res://Art/drones/drone.svg" id="3_uce2n"]
-[ext_resource type="Texture2D" uid="uid://brdfnexe6emkd" path="res://Art/drones/drone3.svg" id="4_ptikx"]
+[ext_resource type="Resource" uid="uid://d0gepgwis2efe" path="res://Data/PlayerSkins/Basic.tres" id="3_mt5os"]
+[ext_resource type="Resource" uid="uid://5kjfehvb1ca5" path="res://Data/PlayerSkins/NeptunesWing.tres" id="4_a0a8i"]
+[ext_resource type="Resource" uid="uid://tv74nmfwppu0" path="res://Data/PlayerSkins/Sunflare.tres" id="5_f3pbp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8orlt"]
 bg_color = Color(0, 0, 0, 0.956863)
@@ -48,35 +49,15 @@ columns = 5
 
 [node name="Button" parent="GridContainer" instance=ExtResource("1_ougwa")]
 layout_mode = 2
-DroneTexture = ExtResource("3_uce2n")
+DroneData = ExtResource("3_mt5os")
 
 [node name="Button2" parent="GridContainer" instance=ExtResource("1_ougwa")]
 layout_mode = 2
+DroneData = ExtResource("4_a0a8i")
 
 [node name="Button3" parent="GridContainer" instance=ExtResource("1_ougwa")]
 layout_mode = 2
-DroneTexture = ExtResource("4_ptikx")
-
-[node name="Button4" parent="GridContainer" instance=ExtResource("1_ougwa")]
-layout_mode = 2
-
-[node name="Button5" parent="GridContainer" instance=ExtResource("1_ougwa")]
-layout_mode = 2
-
-[node name="Button6" parent="GridContainer" instance=ExtResource("1_ougwa")]
-layout_mode = 2
-
-[node name="Button7" parent="GridContainer" instance=ExtResource("1_ougwa")]
-layout_mode = 2
-
-[node name="Button8" parent="GridContainer" instance=ExtResource("1_ougwa")]
-layout_mode = 2
-
-[node name="Button9" parent="GridContainer" instance=ExtResource("1_ougwa")]
-layout_mode = 2
-
-[node name="Button10" parent="GridContainer" instance=ExtResource("1_ougwa")]
-layout_mode = 2
+DroneData = ExtResource("5_f3pbp")
 
 [node name="CloseButton" type="Button" parent="."]
 custom_minimum_size = Vector2(200, 100)

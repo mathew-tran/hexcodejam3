@@ -7,6 +7,10 @@ var Data = {}
 
 var SaveFilePath = "user://savegame.save"
 
+func FirstTimeSave():
+	(load("res://Data/Levelling/0.tres") as LevelupData).GiveReward()
+	SaveGame()
+
 func _ready():
 	await get_tree().process_frame
 	LoadGame()
@@ -25,6 +29,10 @@ func LoadGame():
 			var jsonString = saveFile.get_line()
 			Data = JSON.parse_string(jsonString)
 		saveFile.close()
+
+	if Data.is_empty():
+		FirstTimeSave()
+
 	Load.emit()
 	EventManager.Initialize()
 

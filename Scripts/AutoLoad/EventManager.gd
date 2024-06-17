@@ -15,6 +15,7 @@ signal PlayerInitialized
 
 var RewardAmount = 0
 var Money = 0
+var Level = 0
 var TargetRef
 var PlayerRef
 var DropArea
@@ -54,10 +55,18 @@ func OnLoad():
 		Money = 0
 	else:
 		Money = data
+
+	data = GameData.GetData("Level")
+	if data == null:
+		Level = 0
+	else:
+		Level = data
+
 	MoneyUpdate.emit()
 
 func OnSave():
 	GameData.SaveData("Money", Money)
+	GameData.SaveData("Level", Level)
 
 func RegisterPoint(point):
 	SpawnPoints.append(point)
@@ -131,6 +140,18 @@ func AddMoney(amount):
 	if Money > 999999:
 		Money = 999999
 	MoneyUpdate.emit()
+
+func CanAfford(amount):
+	return Money >= amount
+
+func TakeMoney(amount):
+	Money -= amount
+	MoneyUpdate.emit()
+
+func IncreaseLevel():
+	Level += 1
+	await get_tree().process_frame
+	GameData.SaveGame()
 
 func GiveReward():
 	var text = load("res://Prefabs/UI/PopupText.tscn").instantiate()

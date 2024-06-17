@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerSkinData" load_steps=3 format=3 uid="uid://5kjfehvb1ca5"]
+
+[ext_resource type="Texture2D" uid="uid://benv1hurkwngh" path="res://Art/drones/drone2.svg" id="1_8r38w"]
+[ext_resource type="Script" path="res://Scripts/CustomData/PlayerSkinData.gd" id="2_nurvv"]
+
+[resource]
+script = ExtResource("2_nurvv")
+PlayerSkin = ExtResource("1_8r38w")
+PlayerSkinName = "Neptune's Wing"
+UnlockID = "NEPTUNESWING"

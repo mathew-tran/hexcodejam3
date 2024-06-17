@@ -1,21 +1,25 @@
 extends Button
 
 
-@export var DroneTexture : Texture
-
-var bIsOwned = true
+@export var DroneData : PlayerSkinData
 
 func _ready():
-	Setup(DroneTexture)
+	#Need to put this elsewhere.. basically upper level should populate, and at that time the data should have been loaded.
+	await EventManager.Initialized
+	Setup(DroneData)
 
-func Setup(droneTexture):
-	#Logic to see if it's owned
-	DroneTexture = droneTexture
-	$TextureRect.texture = droneTexture
-	if bIsOwned == true:
+func Setup(droneData):
+	DroneData = droneData
+	$TextureRect.texture = DroneData.GetSkin()
+	if DroneData.IsOwned():
 		$TextureRect.modulate = Color.WHITE
+		$Label.text = DroneData.GetSkinName()
+	else:
+		$TextureRect.modulate = Color.BLACK
+		$Label.text = "???"
 
 
 
 func _on_button_up():
-	EventManager.ChangePlayerSkin.emit(DroneTexture)
+	if DroneData.IsOwned():
+		EventManager.ChangePlayerSkin.emit(DroneData.GetSkin())

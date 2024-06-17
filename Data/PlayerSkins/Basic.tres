@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerSkinData" load_steps=3 format=3 uid="uid://d0gepgwis2efe"]
+
+[ext_resource type="Texture2D" uid="uid://nlikfj0n3hxm" path="res://Art/drones/drone.svg" id="1_4scsl"]
+[ext_resource type="Script" path="res://Scripts/CustomData/PlayerSkinData.gd" id="1_mgj57"]
+
+[resource]
+script = ExtResource("1_mgj57")
+PlayerSkin = ExtResource("1_4scsl")
+PlayerSkinName = "Basic"
+UnlockID = "BASIC"

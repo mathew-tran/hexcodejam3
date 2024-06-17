@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerSkinData" load_steps=3 format=3 uid="uid://tv74nmfwppu0"]
+
+[ext_resource type="Texture2D" uid="uid://brdfnexe6emkd" path="res://Art/drones/drone3.svg" id="1_5cjdk"]
+[ext_resource type="Script" path="res://Scripts/CustomData/PlayerSkinData.gd" id="2_ah3p1"]
+
+[resource]
+script = ExtResource("2_ah3p1")
+PlayerSkin = ExtResource("1_5cjdk")
+PlayerSkinName = "Sun Flare"
+UnlockID = "SUNFLARE"
