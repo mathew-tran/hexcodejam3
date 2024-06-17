@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ctksqfb48qxrk"]
+[gd_scene load_steps=18 format=3 uid="uid://ctksqfb48qxrk"]
 
 [ext_resource type="PackedScene" uid="uid://dfkxh0l8by55q" path="res://Prefabs/UI/DestinationPointer.tscn" id="1_fj0pn"]
 [ext_resource type="Texture2D" uid="uid://xkrr45veeqbr" path="res://Art/currency.svg" id="2_880x3"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://d4i5rffuicl1t" path="res://Prefabs/UI/CustomizePanel.tscn" id="5_30tnp"]
 [ext_resource type="Script" path="res://Scripts/UI/CustomizeButton.gd" id="5_efbsd"]
 [ext_resource type="Script" path="res://Scripts/DisconnectButton.gd" id="8_bd6gg"]
+[ext_resource type="Texture2D" uid="uid://3g61lr6ok6at" path="res://Art/Option.svg" id="9_e8y87"]
+[ext_resource type="Script" path="res://Scripts/UI/OptionsButton.gd" id="10_6c6gg"]
+[ext_resource type="PackedScene" uid="uid://cjed4kef3brhu" path="res://Prefabs/UI/OptionsMenu.tscn" id="11_8jr17"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g6ru"]
 bg_color = Color(0, 0, 0, 0.584314)
@@ -148,7 +151,21 @@ grow_vertical = 0
 text = "Disconnect"
 script = ExtResource("8_bd6gg")
 
+[node name="OptionsButton" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -92.0
+offset_bottom = 94.0
+grow_horizontal = 0
+icon = ExtResource("9_e8y87")
+script = ExtResource("10_6c6gg")
+
+[node name="OptionsMenu" parent="." instance=ExtResource("11_8jr17")]
+visible = false
+
 [connection signal="button_up" from="ButtonsContainer/FindWorkButton" to="ButtonsContainer/FindWorkButton" method="_on_button_up"]
 [connection signal="button_up" from="ButtonsContainer/CustomizeButton" to="ButtonsContainer/CustomizeButton" method="_on_button_up"]
 [connection signal="timeout" from="ButtonsContainer/PlayerMoveCheckTimer" to="ButtonsContainer" method="_on_player_move_check_timer_timeout"]
 [connection signal="button_up" from="DisconnectButton" to="DisconnectButton" method="_on_button_up"]
+[connection signal="button_up" from="OptionsButton" to="OptionsButton" method="_on_button_up"]

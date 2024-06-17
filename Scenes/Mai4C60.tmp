@@ -1,0 +1,202 @@
+[gd_scene load_steps=11 format=3 uid="uid://gk30eduuxgab"]
+
+[ext_resource type="PackedScene" uid="uid://bvrkrgebiq7yg" path="res://Prefabs/Player.tscn" id="1_ndx04"]
+[ext_resource type="PackedScene" uid="uid://dlndouqoebtpf" path="res://Prefabs/Environment/House.tscn" id="2_1exte"]
+[ext_resource type="PackedScene" uid="uid://1xwbhjcg7t82" path="res://Prefabs/Environment/Brick.tscn" id="2_8vdo2"]
+[ext_resource type="PackedScene" uid="uid://c5vr2xgm8fdha" path="res://Prefabs/Game/SpawnPoint.tscn" id="5_vatuq"]
+[ext_resource type="PackedScene" uid="uid://ctksqfb48qxrk" path="res://Prefabs/UI/PlayerUI.tscn" id="6_cuxqq"]
+[ext_resource type="Texture2D" uid="uid://cshsnvj0gm8n5" path="res://Art/Parallax/BGBuilding.svg" id="6_gvj4m"]
+[ext_resource type="Texture2D" uid="uid://tid3n7as1qd4" path="res://Art/Parallax/BGBase.png" id="6_tk8lp"]
+[ext_resource type="Texture2D" uid="uid://do3xrnabiw3xb" path="res://Art/Parallax/BGMountains.svg" id="6_u235x"]
+[ext_resource type="Texture2D" uid="uid://b63farsx5wytr" path="res://Art/Parallax/BGBuilding3.svg" id="8_1iup6"]
+[ext_resource type="PackedScene" uid="uid://cprmuajm12bj2" path="res://Prefabs/Environment/FerrisWheel.tscn" id="10_5all6"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="House" parent="Environment" instance=ExtResource("2_1exte")]
+
+[node name="House3" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(-630, 263)
+
+[node name="House6" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(-5978, 261)
+
+[node name="House7" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(-11572, 261)
+
+[node name="House8" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(-19971, 261)
+
+[node name="House9" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(-26014, 261)
+
+[node name="House2" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(743, -410)
+
+[node name="House4" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(743.5, -1114)
+
+[node name="House5" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(743.5, -1824)
+
+[node name="House10" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8328.5, 266)
+
+[node name="House11" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8328.5, -444)
+
+[node name="House12" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8329, -1148)
+
+[node name="House13" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8329, -1858)
+
+[node name="House14" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8328.5, -2570.5)
+scale = Vector2(1, 1.00702)
+
+[node name="House15" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8331.5, -3283)
+
+[node name="House16" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8332, -3987)
+
+[node name="House17" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(8332, -4697)
+
+[node name="Brick" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(30, 7706.5)
+scale = Vector2(2000, 100.162)
+
+[node name="Brick2" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(-13, -18472)
+scale = Vector2(2000, 47.3099)
+
+[node name="Brick3" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(-148949, -18472)
+rotation = -1.57079
+scale = Vector2(2000, 47.3099)
+
+[node name="Brick4" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(147197, -18472)
+rotation = -1.57079
+scale = Vector2(2000, 47.3099)
+
+[node name="Brick5" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(3823, -66.75)
+scale = Vector2(1, 9.77817)
+
+[node name="Brick6" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(6164, -63.25)
+scale = Vector2(1, 9.72887)
+
+[node name="Brick7" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(3849, -825)
+rotation = 1.57079
+scale = Vector2(1, 5)
+
+[node name="Brick8" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(6164, -823)
+rotation = 1.57079
+scale = Vector2(1, 5)
+
+[node name="Brick9" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(5044, 300)
+rotation = 1.57079
+scale = Vector2(1, 5)
+
+[node name="Brick10" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(5034, 590)
+scale = Vector2(1, 5)
+
+[node name="Player" parent="." instance=ExtResource("1_ndx04")]
+position = Vector2(-13, -205)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("6_cuxqq")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(2060, 1070)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_tk8lp")
+
+[node name="Mountains" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+position = Vector2(0, -400)
+motion_scale = Vector2(0.9, 1)
+motion_offset = Vector2(0, -400)
+motion_mirroring = Vector2(1600, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground/Mountains"]
+modulate = Color(0.414115, 0.200845, 0.00685257, 1)
+offset_right = 1990.0
+offset_bottom = 1061.0
+texture = ExtResource("6_u235x")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+modulate = Color(0, 0.00248056, 0.00248056, 1)
+position = Vector2(600, -200)
+motion_scale = Vector2(0.9, 1)
+motion_offset = Vector2(600, -200)
+motion_mirroring = Vector2(2060, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
+offset_right = 1990.0
+offset_bottom = 1061.0
+texture = ExtResource("8_1iup6")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+modulate = Color(1, 1, 0.458824, 1)
+position = Vector2(0, -200)
+motion_mirroring = Vector2(2060, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_gvj4m")
+
+[node name="SpawnNodes" type="Node2D" parent="." groups=["Items"]]
+
+[node name="SpawnPoint" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(-643, -238)
+
+[node name="SpawnPoint2" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(756, -2325)
+
+[node name="SpawnPoint8" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(-3835, 452)
+
+[node name="SpawnPoint9" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(-11569, -239)
+
+[node name="SpawnPoint6" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(4999, 88)
+
+[node name="SpawnPoint7" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(6165, -1041)
+rotation = 3.14159
+
+[node name="SpawnPoint3" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(-5954, -239)
+
+[node name="SpawnPoint4" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(13724, 476)
+
+[node name="SpawnPoint5" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(8356, -5197)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("10_5all6")]
+position = Vector2(-9520, -918)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("10_5all6")]
+position = Vector2(4224, -6998)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("10_5all6")]
+position = Vector2(11792, -1430)
+linear_damp_mode = 1

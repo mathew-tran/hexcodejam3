@@ -20,11 +20,11 @@ var RotationProgress = 0
 func _ready():
 	$Camera2D.set_physics_process(true)
 
-	EventManager.connect("ChangePlayerSkin", Callable(self, "OnChangePlayerSkin"))
-	if EventManager.bIsInitialized == false:
-		await EventManager.Initialized
+	EventManager.PlayerRef = self
+	EventManager.PlayerInitialized.emit()
 
-	EventManager.MakeJob()
+	EventManager.connect("ChangePlayerSkin", Callable(self, "OnChangePlayerSkin"))
+
 
 func OnChangePlayerSkin(newTexture):
 	Sprite.texture = newTexture
@@ -40,7 +40,7 @@ func OrientUpright(delta):
 		targetRotation *= abs(linear_velocity.x/80)
 	var rotationDifference = targetRotation - rotation
 	rotationDifference = wrapf(rotationDifference, -PI, PI)
-	angular_velocity = rotationDifference * 10
+	angular_velocity = rotationDifference * 10000 * delta
 
 func _process(delta):
 	if IsConnected():
@@ -103,13 +103,6 @@ func _physics_process(delta):
 		ResetSteer()
 	if linear_velocity.y == 0 and linear_velocity.x == 0:
 		ResetSteer()
-
-	var targetRotation = 0
-	if SteerDirection.x != 0:
-		if SteerDirection.x > 0:
-			targetRotation = 15
-		else:
-			targetRotation = -15
 
 func IsConnected():
 	return PinJoint.node_b != NodePath("")

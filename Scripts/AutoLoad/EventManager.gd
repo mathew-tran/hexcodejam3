@@ -10,6 +10,8 @@ signal CustomizeClick
 signal MoneyUpdate
 signal PlayerConnect
 signal PlayerDisconnect
+signal OptionPressed
+signal PlayerInitialized
 
 var RewardAmount = 0
 var Money = 0
@@ -22,18 +24,40 @@ var bIsInitialized = false
 
 var SpawnPoints = []
 
-
 func _ready():
+	GameData.connect("Load", Callable(self,"OnLoad"))
+	GameData.connect("Save", Callable(self,"OnSave"))
+
+func Initialize():
+	bIsInitialized = false
 	MoneyUpdate.emit()
+
+
+	if GameData.HasLoaded():
+		OnLoad()
+
 	connect("AddTarget", Callable(self, "OnAddTarget"))
 	connect("ClearTarget", Callable(self, "OnClearTarget"))
 	connect("AddDropArea", Callable(self, "OnAddDropArea"))
 	connect("ClearDropArea", Callable(self, "OnClearDropArea"))
 
-	await get_tree().create_timer(1).timeout
-	PlayerRef = get_tree().get_nodes_in_group("Player")[0]
+	if is_instance_valid(PlayerRef) == false:
+		await PlayerInitialized
 	bIsInitialized = true
 	Initialized.emit()
+
+
+
+func OnLoad():
+	var data = GameData.GetData("Money")
+	if data == null:
+		Money = 0
+	else:
+		Money = data
+	MoneyUpdate.emit()
+
+func OnSave():
+	GameData.SaveData("Money", Money)
 
 func RegisterPoint(point):
 	SpawnPoints.append(point)
@@ -85,7 +109,7 @@ func GetItemsGroup():
 	return get_tree().get_nodes_in_group("Items")[0]
 
 func MakeJob():
-	if is_instance_valid(GetTarget()):
+	if is_instance_valid(GetTarget()) and is_instance_valid(GetPlayer()):
 		return
 	var points = GetTwoRandomPoints()
 	var box = load(GetBoxClass()).instantiate()
@@ -107,6 +131,7 @@ func AddMoney(amount):
 	if Money > 999999:
 		Money = 999999
 	MoneyUpdate.emit()
+
 func GiveReward():
 	var text = load("res://Prefabs/UI/PopupText.tscn").instantiate()
 	text.global_position = GetPlayer().global_position
@@ -117,6 +142,7 @@ func GiveReward():
 	RewardAmount = 0
 
 	AttemptRandomBonus()
+	GameData.SaveGame()
 
 func AttemptRandomBonus():
 	var result = randi() % 100
