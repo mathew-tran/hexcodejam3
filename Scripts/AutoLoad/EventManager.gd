@@ -28,6 +28,10 @@ var SpawnPoints = []
 func _ready():
 	GameData.connect("Load", Callable(self,"OnLoad"))
 	GameData.connect("Save", Callable(self,"OnSave"))
+	connect("AddTarget", Callable(self, "OnAddTarget"))
+	connect("ClearTarget", Callable(self, "OnClearTarget"))
+	connect("AddDropArea", Callable(self, "OnAddDropArea"))
+	connect("ClearDropArea", Callable(self, "OnClearDropArea"))
 
 func Initialize():
 	bIsInitialized = false
@@ -36,11 +40,6 @@ func Initialize():
 
 	if GameData.HasLoaded():
 		OnLoad()
-
-	connect("AddTarget", Callable(self, "OnAddTarget"))
-	connect("ClearTarget", Callable(self, "OnClearTarget"))
-	connect("AddDropArea", Callable(self, "OnAddDropArea"))
-	connect("ClearDropArea", Callable(self, "OnClearDropArea"))
 
 	if is_instance_valid(PlayerRef) == false:
 		await PlayerInitialized
