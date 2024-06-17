@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bra6c53ligutf"]
+
+[ext_resource type="Texture2D" uid="uid://dtjabr5ofcnlw" path="res://Art/DeliverParticle.svg" id="1_2or2j"]
+[ext_resource type="Script" path="res://Scripts/Effects/DropExplosion.gd" id="2_hhjbm"]
+
+[node name="DropExplosion" type="CPUParticles2D"]
+position = Vector2(0, 10)
+emitting = false
+amount = 50
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.5
+texture = ExtResource("1_2or2j")
+gravity = Vector2(0, -8000)
+initial_velocity_max = 18.49
+scale_amount_min = 1.3
+scale_amount_max = 1.3
+color = Color(1, 1, 1, 0.709804)
+script = ExtResource("2_hhjbm")
