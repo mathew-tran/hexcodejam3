@@ -22,6 +22,7 @@ func Initialize():
 	var file_name = dir.get_next()
 	while file_name != "":
 		if dir.current_is_dir() == false:
+			file_name = file_name.trim_suffix(".remap")
 			if file_name.ends_with(".tres"):
 				Levels.append(file_name)
 			file_name = dir.get_next()
@@ -31,7 +32,8 @@ func Initialize():
 
 func SetLevelData():
 	var nextLevelPath = DirectoryPath + "/" + str(EventManager.Level +1) + ".tres"
-	nextLevelPath = nextLevelPath.trim_suffix(".remap")
+	if FileAccess.file_exists(nextLevelPath) == false:
+		nextLevelPath += ".remap"
 	if FileAccess.file_exists(nextLevelPath):
 		NextLevelItem = load(nextLevelPath) as LevelupData
 
