@@ -17,5 +17,8 @@ func GiveReward():
 	if UnlockID != "null":
 		GameData.SaveData(GetUnlockName(), true)
 
+func GetAmountToLevel():
+	return AmountToLevel
+
 func GetUnlockName():
 	return UNLOCKTYPE.keys()[UnlockType] + "-" + UnlockID

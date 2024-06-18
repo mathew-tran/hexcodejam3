@@ -11,6 +11,7 @@ signal MoneyUpdate
 signal PlayerConnect
 signal PlayerDisconnect
 signal OptionPressed
+signal ShopPressed
 signal PlayerInitialized
 
 var RewardAmount = 0
@@ -51,7 +52,7 @@ func Initialize():
 func OnLoad():
 	var data = GameData.GetData("Money")
 	if data == null:
-		Money = 0
+		Money = 10000
 	else:
 		Money = data
 

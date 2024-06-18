@@ -3,13 +3,8 @@ extends Button
 
 @export var DroneData : PlayerSkinData
 
-func _ready():
-	#Need to put this elsewhere.. basically upper level should populate, and at that time the data should have been loaded.
-	await EventManager.Initialized
-	Setup(DroneData)
 
-func Setup(droneData):
-	DroneData = droneData
+func Update():
 	$TextureRect.texture = DroneData.GetSkin()
 	if DroneData.IsOwned():
 		$TextureRect.modulate = Color.WHITE

@@ -5,3 +5,6 @@
 [resource]
 script = ExtResource("1_oixra")
 AmountToLevel = 100
+UnlockID = "NEPTUNESWING"
+UnlockName = "Neptune's Wing"
+UnlockType = 1

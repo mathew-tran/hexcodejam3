@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://3258ltaoah8b"]
+
+[ext_resource type="Script" path="res://Scripts/UI/ShopMenu.gd" id="1_il5f1"]
+[ext_resource type="PackedScene" uid="uid://b0iicdybfjea2" path="res://Prefabs/UI/LevelBox.tscn" id="1_ugfo5"]
+[ext_resource type="Texture2D" uid="uid://cemeo06d6j4ip" path="res://Art/ConvertArrow.svg" id="2_mt70i"]
+[ext_resource type="Texture2D" uid="uid://xkrr45veeqbr" path="res://Art/currency.svg" id="4_f2dha"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ql4yl"]
+bg_color = Color(0.184314, 0.12549, 0.254902, 1)
+
+[node name="ShopMenu" type="Panel"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ql4yl")
+script = ExtResource("1_il5f1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -300.0
+offset_right = 500.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="CurrentLevel" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_ugfo5")]
+layout_mode = 2
+
+[node name="ConvertArrow" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_mt70i")
+stretch_mode = 5
+
+[node name="NextLevel" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_ugfo5")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_f2dha")
+stretch_mode = 5
+
+[node name="PriceText" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "1000/1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Increase Research Level"
+
+[node name="CloseButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -145.0
+offset_right = 100.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CLOSE"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="button_up" from="VBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="CloseButton" to="." method="_on_close_button_button_up"]

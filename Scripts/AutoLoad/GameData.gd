@@ -37,13 +37,14 @@ func LoadGame():
 	EventManager.Initialize()
 
 func ClearGame():
-	Data.clear()
+	Data = {}
 	var saveFile = FileAccess.open(SaveFilePath, FileAccess.WRITE)
 	saveFile.store_line(JSON.stringify(Data))
 	saveFile.close()
+	EventManager.OnLoad()
+	LoadGame()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
-	EventManager.Initialize()
 
 
 func GetData(key):
