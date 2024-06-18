@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LevelupData" load_steps=2 format=3 uid="uid://bldxhekg6flc"]
+
+[ext_resource type="Script" path="res://Scripts/CustomData/LevelUpData.gd" id="1_6vicp"]
+
+[resource]
+script = ExtResource("1_6vicp")
+AmountToLevel = 250

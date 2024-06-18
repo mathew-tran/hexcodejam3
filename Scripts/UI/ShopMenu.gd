@@ -22,12 +22,15 @@ func Initialize():
 	var file_name = dir.get_next()
 	while file_name != "":
 		if dir.current_is_dir() == false:
+			print(file_name)
 			file_name = file_name.trim_suffix(".remap")
 			if file_name.ends_with(".tres"):
 				Levels.append(file_name)
 			file_name = dir.get_next()
-		dir.list_dir_end()
+			print(file_name + " NEXT")
+	dir.list_dir_end()
 	MaxLevel = len(Levels)
+	print(MaxLevel)
 
 
 func SetLevelData():
