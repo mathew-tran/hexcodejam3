@@ -8,17 +8,12 @@ enum UNLOCKTYPE {
 }
 
 @export var AmountToLevel = 100
-@export var UnlockID = "null"
-@export var UnlockName = "null"
-@export var UnlockTexture : Texture2D
-@export var UnlockType : UNLOCKTYPE
+@export var UnlockReward : RewardData
 
 func GiveReward():
-	if UnlockID != "null":
-		GameData.SaveData(GetUnlockName(), true)
+	if is_instance_valid(UnlockReward):
+		GameData.SaveData(UnlockReward.GetUnlockID(), true)
 
 func GetAmountToLevel():
 	return AmountToLevel
 
-func GetUnlockName():
-	return UNLOCKTYPE.keys()[UnlockType] + "-" + UnlockID

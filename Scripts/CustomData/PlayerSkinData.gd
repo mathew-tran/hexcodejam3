@@ -1,17 +1,12 @@
-extends Resource
+extends RewardData
 
 class_name PlayerSkinData
 
 @export var PlayerSkin : Texture2D
 @export var PlayerSkinName = "null"
-@export var UnlockID = ""
 
-func IsOwned():
-	var data = GameData.GetData("SKIN-" + UnlockID)
-	if data:
-		return true
-	else:
-		return false
+func GetUnlockID():
+	return ("SKIN-" + UnlockID)
 
 func GetSkin():
 	return PlayerSkin

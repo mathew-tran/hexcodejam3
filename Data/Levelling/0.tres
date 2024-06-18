@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="LevelupData" load_steps=2 format=3 uid="uid://b40jdq8xkyb4k"]
+[gd_resource type="Resource" script_class="LevelupData" load_steps=3 format=3 uid="uid://b40jdq8xkyb4k"]
 
+[ext_resource type="Resource" uid="uid://d0gepgwis2efe" path="res://Data/PlayerSkins/Basic.tres" id="1_aa2qj"]
 [ext_resource type="Script" path="res://Scripts/CustomData/LevelUpData.gd" id="1_n7w27"]
 
 [resource]
 script = ExtResource("1_n7w27")
 AmountToLevel = 100
-UnlockID = "BASIC"
-UnlockName = "Basic"
-UnlockType = 1
+UnlockReward = ExtResource("1_aa2qj")

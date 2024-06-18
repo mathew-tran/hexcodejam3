@@ -112,10 +112,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 470.0
-offset_top = 820.0
-offset_right = 970.0
-offset_bottom = 900.0
+offset_left = -250.0
+offset_top = -80.0
+offset_right = 250.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("3_7c123")
@@ -147,6 +146,20 @@ libraries = {
 "": SubResource("AnimationLibrary_72cpe")
 }
 
+[node name="OptionsButton" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -92.0
+offset_bottom = 94.0
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0t4e2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ambgl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jyfce")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b0if5")
+icon = ExtResource("9_e8y87")
+script = ExtResource("10_6c6gg")
+
 [node name="Panel" parent="." instance=ExtResource("5_30tnp")]
 visible = false
 
@@ -166,20 +179,6 @@ grow_vertical = 0
 text = "Disconnect"
 script = ExtResource("8_bd6gg")
 
-[node name="OptionsButton" type="Button" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -92.0
-offset_bottom = 94.0
-grow_horizontal = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_0t4e2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ambgl")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jyfce")
-theme_override_styles/focus = SubResource("StyleBoxFlat_b0if5")
-icon = ExtResource("9_e8y87")
-script = ExtResource("10_6c6gg")
-
 [node name="OptionsMenu" parent="." instance=ExtResource("11_8jr17")]
 visible = false
 
@@ -190,5 +189,5 @@ visible = false
 [connection signal="button_up" from="ButtonsContainer/ShopButton" to="ButtonsContainer/ShopButton" method="_on_button_up"]
 [connection signal="button_up" from="ButtonsContainer/CustomizeButton" to="ButtonsContainer/CustomizeButton" method="_on_button_up"]
 [connection signal="timeout" from="ButtonsContainer/PlayerMoveCheckTimer" to="ButtonsContainer" method="_on_player_move_check_timer_timeout"]
-[connection signal="button_up" from="DisconnectButton" to="DisconnectButton" method="_on_button_up"]
 [connection signal="button_up" from="OptionsButton" to="OptionsButton" method="_on_button_up"]
+[connection signal="button_up" from="DisconnectButton" to="DisconnectButton" method="_on_button_up"]
