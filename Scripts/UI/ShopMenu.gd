@@ -31,6 +31,7 @@ func Initialize():
 
 func SetLevelData():
 	var nextLevelPath = DirectoryPath + "/" + str(EventManager.Level +1) + ".tres"
+	nextLevelPath = nextLevelPath.trim_suffix(".remap")
 	if FileAccess.file_exists(nextLevelPath):
 		NextLevelItem = load(nextLevelPath) as LevelupData
 
