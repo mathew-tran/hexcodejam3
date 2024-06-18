@@ -77,5 +77,10 @@ func UpdatePage():
 func _on_button_button_up():
 	EventManager.IncreaseLevel()
 	NextLevelItem.GiveReward()
+	$RewardPanel.Show(NextLevelItem.UnlockReward)
 	EventManager.TakeMoney(NextLevelItem.GetAmountToLevel())
 	UpdatePage()
+
+
+func _on_accept_dialog_confirmed():
+	$CloseButton.grab_focus()

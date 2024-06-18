@@ -12,3 +12,9 @@ func IsOwned():
 
 func GetUnlockID():
 	return ("SKIN-" + UnlockID)
+
+func GetRewardTexture():
+	return null
+
+func GetRewardText():
+	return ""

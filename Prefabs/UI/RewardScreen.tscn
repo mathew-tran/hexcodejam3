@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx360j6elkvm7"]
+
+[ext_resource type="Script" path="res://Scripts/UI/RewardScreen.gd" id="1_lrvxw"]
+[ext_resource type="Texture2D" uid="uid://benv1hurkwngh" path="res://Art/drones/drone2.svg" id="1_oem0g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oirrb"]
+bg_color = Color(0.184314, 0.12549, 0.254902, 1)
+
+[node name="RewardPanel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oirrb")
+script = ExtResource("1_lrvxw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -118.0
+offset_right = 300.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "YOU HAVE UNLOCKED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_oem0g")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "\"Firefy\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -145.0
+offset_right = 100.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CONTINUE"
+
+[connection signal="button_up" from="CloseButton" to="." method="_on_close_button_button_up"]

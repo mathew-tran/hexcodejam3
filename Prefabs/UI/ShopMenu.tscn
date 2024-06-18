@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://3258ltaoah8b"]
+[gd_scene load_steps=7 format=3 uid="uid://3258ltaoah8b"]
 
 [ext_resource type="Script" path="res://Scripts/UI/ShopMenu.gd" id="1_il5f1"]
 [ext_resource type="PackedScene" uid="uid://b0iicdybfjea2" path="res://Prefabs/UI/LevelBox.tscn" id="1_ugfo5"]
 [ext_resource type="Texture2D" uid="uid://cemeo06d6j4ip" path="res://Art/ConvertArrow.svg" id="2_mt70i"]
 [ext_resource type="Texture2D" uid="uid://xkrr45veeqbr" path="res://Art/currency.svg" id="4_f2dha"]
+[ext_resource type="PackedScene" uid="uid://bx360j6elkvm7" path="res://Prefabs/UI/RewardScreen.tscn" id="5_lbvgb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ql4yl"]
 bg_color = Color(0.184314, 0.12549, 0.254902, 1)
@@ -88,6 +89,10 @@ offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "CLOSE"
+
+[node name="RewardPanel" parent="." instance=ExtResource("5_lbvgb")]
+visible = false
+layout_mode = 1
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="button_up" from="VBoxContainer/Button" to="." method="_on_button_button_up"]

@@ -13,3 +13,9 @@ func GetSkin():
 
 func GetSkinName():
 	return PlayerSkinName
+
+func GetRewardTexture():
+	return PlayerSkin
+
+func GetRewardText():
+	return "'" + GetSkinName() + "'"
