@@ -5,7 +5,7 @@ signal Load
 
 var Data = {}
 
-var SaveFilePath = "user://savegame.save"
+var SaveFilePath = "user://game.save"
 
 func FirstTimeSave():
 	(load("res://Data/Levelling/0.tres") as LevelupData).GiveReward()

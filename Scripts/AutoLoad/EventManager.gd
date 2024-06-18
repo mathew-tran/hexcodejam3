@@ -53,7 +53,7 @@ func Initialize():
 func OnLoad():
 	var data = GameData.GetData("Money")
 	if data == null:
-		Money = 10000
+		Money = 20
 	else:
 		Money = data
 
