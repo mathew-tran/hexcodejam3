@@ -17,6 +17,7 @@ signal PlayerInitialized
 var RewardAmount = 0
 var Money = 0
 var Level = 0
+var LastSkin = ""
 var TargetRef
 var PlayerRef
 var DropArea
@@ -61,6 +62,10 @@ func OnLoad():
 		Level = 0
 	else:
 		Level = data
+
+	data = GameData.GetData("LastSkin")
+	if data:
+		LastSkin = data
 
 	MoneyUpdate.emit()
 

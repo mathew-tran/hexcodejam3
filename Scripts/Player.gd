@@ -25,9 +25,13 @@ func _ready():
 
 	EventManager.connect("ChangePlayerSkin", Callable(self, "OnChangePlayerSkin"))
 
+	if EventManager.LastSkin != "":
+		OnChangePlayerSkin(load(EventManager.LastSkin))
+
 
 func OnChangePlayerSkin(newTexture):
 	Sprite.texture = newTexture
+	GameData.SaveData("LastSkin", newTexture.resource_path)
 
 func OrientUpright(_delta):
 	var targetRotation = 0.0
