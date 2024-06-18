@@ -66,6 +66,8 @@ func OnLoad():
 	data = GameData.GetData("LastSkin")
 	if data:
 		LastSkin = data
+		ChangePlayerSkin.emit(load(LastSkin))
+
 
 	MoneyUpdate.emit()
 
