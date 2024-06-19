@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerSkinData" load_steps=3 format=3 uid="uid://duj2ioem3iani"]
+
+[ext_resource type="Texture2D" uid="uid://bnuopkyhfedja" path="res://Art/drones/drone5.svg" id="1_d1q4i"]
+[ext_resource type="Script" path="res://Scripts/CustomData/PlayerSkinData.gd" id="2_l2nom"]
+
+[resource]
+script = ExtResource("2_l2nom")
+PlayerSkin = ExtResource("1_d1q4i")
+PlayerSkinName = "Aqua Sabre"
+UnlockID = "AQUASABRE"

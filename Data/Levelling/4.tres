@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="LevelupData" load_steps=2 format=3 uid="uid://pjsn4horekgw"]
+[gd_resource type="Resource" script_class="LevelupData" load_steps=3 format=3 uid="uid://pjsn4horekgw"]
 
+[ext_resource type="Resource" uid="uid://dad0h2hycta2i" path="res://Data/PlayerSkins/SpiralKing.tres" id="1_4qyly"]
 [ext_resource type="Script" path="res://Scripts/CustomData/LevelUpData.gd" id="2_wlm4k"]
 
 [resource]
 script = ExtResource("2_wlm4k")
 AmountToLevel = 250
+UnlockReward = ExtResource("1_4qyly")

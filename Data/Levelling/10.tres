@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="LevelupData" load_steps=2 format=3 uid="uid://cwn3bniidekxf"]
+[gd_resource type="Resource" script_class="LevelupData" load_steps=3 format=3 uid="uid://cwn3bniidekxf"]
 
 [ext_resource type="Script" path="res://Scripts/CustomData/LevelUpData.gd" id="1_gsscv"]
+[ext_resource type="Resource" uid="uid://5lpxxs05v3xt" path="res://Data/PlayerSkins/DragonWarrior.tres" id="1_q6ah3"]
 
 [resource]
 script = ExtResource("1_gsscv")
 AmountToLevel = 250
+UnlockReward = ExtResource("1_q6ah3")

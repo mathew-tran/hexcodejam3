@@ -20,11 +20,20 @@
 [node name="House3" parent="Environment" instance=ExtResource("2_1exte")]
 position = Vector2(-630, 263)
 
+[node name="House18" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(-8953, -3353)
+
 [node name="House6" parent="Environment" instance=ExtResource("2_1exte")]
 position = Vector2(-5978, 261)
 
 [node name="House7" parent="Environment" instance=ExtResource("2_1exte")]
 position = Vector2(-11572, 261)
+
+[node name="House20" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(16585.5, 246)
+
+[node name="House21" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(19156.5, 256)
 
 [node name="House8" parent="Environment" instance=ExtResource("2_1exte")]
 position = Vector2(-19971, 261)
@@ -94,6 +103,34 @@ scale = Vector2(1, 9.72887)
 
 [node name="Brick7" parent="Environment" instance=ExtResource("2_8vdo2")]
 position = Vector2(3849, -825)
+rotation = 1.57079
+scale = Vector2(1, 5)
+
+[node name="Brick11" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(18554, -3980)
+rotation = 1.57079
+scale = Vector2(1, 5)
+
+[node name="Brick12" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(-8953, -2924)
+rotation = 1.57079
+scale = Vector2(1, 5)
+
+[node name="House19" parent="Environment" instance=ExtResource("2_1exte")]
+position = Vector2(5015, -10553)
+
+[node name="Brick15" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(5015, -10124)
+rotation = 1.57079
+scale = Vector2(1, 5)
+
+[node name="Brick13" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(14141.6, -7462)
+rotation = 1.57079
+scale = Vector2(1, 3.38927)
+
+[node name="Brick14" parent="Environment" instance=ExtResource("2_8vdo2")]
+position = Vector2(-1308, -5056)
 rotation = 1.57079
 scale = Vector2(1, 5)
 
@@ -175,6 +212,12 @@ position = Vector2(-3835, 452)
 [node name="SpawnPoint9" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
 position = Vector2(-11569, -239)
 
+[node name="SpawnPoint15" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(16588.5, -254)
+
+[node name="SpawnPoint16" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(19159.5, -244)
+
 [node name="SpawnPoint6" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
 position = Vector2(4999, 88)
 
@@ -185,17 +228,26 @@ rotation = 3.14159
 [node name="SpawnPoint3" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
 position = Vector2(-5954, -239)
 
+[node name="SpawnPoint10" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(-1362, -5273)
+
+[node name="SpawnPoint11" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(-8953, -3849)
+
+[node name="SpawnPoint14" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(5015, -11048)
+
+[node name="SpawnPoint12" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(14138, -7674)
+
+[node name="SpawnPoint13" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
+position = Vector2(18538, -4197)
+
 [node name="SpawnPoint4" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
 position = Vector2(13724, 476)
 
 [node name="SpawnPoint5" parent="SpawnNodes" instance=ExtResource("5_vatuq")]
 position = Vector2(8356, -5197)
-
-[node name="RigidBody2D" parent="." instance=ExtResource("10_5all6")]
-position = Vector2(-9520, -918)
-
-[node name="RigidBody2D2" parent="." instance=ExtResource("10_5all6")]
-position = Vector2(4224, -6998)
 
 [node name="RigidBody2D3" parent="." instance=ExtResource("10_5all6")]
 position = Vector2(11792, -1430)

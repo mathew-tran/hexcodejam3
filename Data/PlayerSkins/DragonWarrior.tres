@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerSkinData" load_steps=3 format=3 uid="uid://5lpxxs05v3xt"]
+
+[ext_resource type="Texture2D" uid="uid://cawmhwlc4ig3o" path="res://Art/drones/drone6.svg" id="1_hkp64"]
+[ext_resource type="Script" path="res://Scripts/CustomData/PlayerSkinData.gd" id="2_fs2w8"]
+
+[resource]
+script = ExtResource("2_fs2w8")
+PlayerSkin = ExtResource("1_hkp64")
+PlayerSkinName = "Dragon Warrior"
+UnlockID = "DRAGONWARRIOR"
