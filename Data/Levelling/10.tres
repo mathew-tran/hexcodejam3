@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelupData" load_steps=3 format=3 uid="uid://cwn3bniidekxf"]
+[gd_resource type="Resource" script_class="LevelupData" load_steps=3 format=3 uid="uid://ccpjm67ic0x87"]
 
 [ext_resource type="Resource" uid="uid://dad0h2hycta2i" path="res://Data/PlayerSkins/SpiralKing.tres" id="1_4hh8n"]
 [ext_resource type="Script" path="res://Scripts/CustomData/LevelUpData.gd" id="1_gsscv"]

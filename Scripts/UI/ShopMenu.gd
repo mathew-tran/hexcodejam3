@@ -63,7 +63,7 @@ func _on_visibility_changed():
 
 func UpdatePage():
 	CurrentLevel.SetLevel(EventManager.Level)
-	if EventManager.Level >= MaxLevel:
+	if EventManager.Level >= MaxLevel -1:
 		ConvertArrow.visible = false
 		NextLevel.visible = false
 		PurchaseButton.visible = false
