@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="LevelupData" load_steps=3 format=3 uid="uid://4shr0qmjev01"]
 
-[ext_resource type="Resource" uid="uid://5kjfehvb1ca5" path="res://Data/PlayerSkins/NeptunesWing.tres" id="1_fk52k"]
+[ext_resource type="Resource" uid="uid://tv74nmfwppu0" path="res://Data/PlayerSkins/Sunflare.tres" id="1_ligno"]
 [ext_resource type="Script" path="res://Scripts/CustomData/LevelUpData.gd" id="1_oixra"]
 
 [resource]
 script = ExtResource("1_oixra")
 AmountToLevel = 100
-UnlockReward = ExtResource("1_fk52k")
+UnlockReward = ExtResource("1_ligno")

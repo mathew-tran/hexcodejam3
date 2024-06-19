@@ -7,7 +7,7 @@ size = Vector2(1810, 140)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 disable_mode = 1
-mass = 10.0
+mass = 2.0
 gravity_scale = 0.0
 sleeping = true
 linear_damp = 100.0

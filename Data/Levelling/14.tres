@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="LevelupData" load_steps=2 format=3 uid="uid://eink75uufc2u"]
-
-[ext_resource type="Script" path="res://Scripts/CustomData/LevelUpData.gd" id="1_lccaj"]
-
-[resource]
-script = ExtResource("1_lccaj")
-AmountToLevel = 250

@@ -1,9 +1,7 @@
-[gd_resource type="Resource" script_class="LevelupData" load_steps=3 format=3 uid="uid://ohiuqilafupj"]
+[gd_resource type="Resource" script_class="LevelupData" load_steps=2 format=3 uid="uid://ohiuqilafupj"]
 
 [ext_resource type="Script" path="res://Scripts/CustomData/LevelUpData.gd" id="1_jv1hj"]
-[ext_resource type="Resource" uid="uid://tv74nmfwppu0" path="res://Data/PlayerSkins/Sunflare.tres" id="1_kfdjp"]
 
 [resource]
 script = ExtResource("1_jv1hj")
 AmountToLevel = 250
-UnlockReward = ExtResource("1_kfdjp")

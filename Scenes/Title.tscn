@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://llo7cppbxdwa"]
+
+[ext_resource type="Texture2D" uid="uid://bgu14c65jma37" path="res://Art/Promo/PrimeDayText.svg" id="1_ylra1"]
+[ext_resource type="Texture2D" uid="uid://dh1e4u4eje35v" path="res://Art/Promo/PrimeDayArt.svg" id="2_um26f"]
+[ext_resource type="Script" path="res://Scripts/PlayButton.gd" id="3_b0ycv"]
+[ext_resource type="Script" path="res://Scripts/LicenseButton.gd" id="3_goixq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="PrimeDayText2" type="Sprite2D" parent="."]
+position = Vector2(232, 187)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ylra1")
+
+[node name="PrimeDayArt" type="Sprite2D" parent="."]
+position = Vector2(1030, 339)
+texture = ExtResource("2_um26f")
+
+[node name="PlayButton" type="Button" parent="."]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 102.0
+offset_top = 611.0
+offset_right = 402.0
+offset_bottom = 711.0
+theme_override_font_sizes/font_size = 80
+text = "PLAY"
+script = ExtResource("3_b0ycv")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1140.0
+offset_top = 662.0
+offset_right = 1427.0
+offset_bottom = 711.0
+text = "Game Designer & Game Programmer  
+Mathew Tran
+
+Physics Smoothing
+LawnJelly
+"
+horizontal_alignment = 1
+
+[node name="LicenseButton" type="Button" parent="."]
+offset_left = 1254.0
+offset_top = 794.0
+offset_right = 1316.0
+offset_bottom = 825.0
+text = "license"
+script = ExtResource("3_goixq")
+
+[node name="ConfirmationDialog" type="AcceptDialog" parent="LicenseButton"]
+mode = 3
+title = "License"
+size = Vector2i(800, 800)
+unresizable = true
+borderless = true
+always_on_top = true
+content_scale_mode = 1
+dialog_text = "MIT License
+
+Copyright (c) 2019 Lawnjelly
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE."
+
+[connection signal="button_up" from="PlayButton" to="PlayButton" method="_on_button_up"]
+[connection signal="button_up" from="LicenseButton" to="LicenseButton" method="_on_button_up"]

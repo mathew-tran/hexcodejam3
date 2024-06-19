@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="LevelupData" load_steps=2 format=3 uid="uid://xl0d5821v5bv"]
+[gd_resource type="Resource" script_class="LevelupData" load_steps=3 format=3 uid="uid://xl0d5821v5bv"]
 
+[ext_resource type="Resource" uid="uid://duj2ioem3iani" path="res://Data/PlayerSkins/AquaSabre.tres" id="1_ljyxl"]
 [ext_resource type="Script" path="res://Scripts/CustomData/LevelUpData.gd" id="1_n3mep"]
 
 [resource]
 script = ExtResource("1_n3mep")
 AmountToLevel = 250
+UnlockReward = ExtResource("1_ljyxl")
